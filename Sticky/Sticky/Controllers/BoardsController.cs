@@ -86,6 +86,7 @@ namespace Sticky.Controllers
         [HttpPost]
         public async Task<IActionResult> PostBoards([FromBody] Boards boards)
         {
+            boards.BoardId = _context.Boards.Count() + 1;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
