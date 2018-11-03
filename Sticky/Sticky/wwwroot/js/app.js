@@ -14,19 +14,22 @@ $(function(){
         if($(e.target).is("div")) return;
         if($(e.target).is("h1")) return;
         if(e.pageY > (window.innerHeight-202)){e.pageY=window.innerHeight-202;}
-        var div = $('<div class="image-wrapper">')
+        if(e.pageX > (window.innerWidth-202)){e.pageX=window.innerWidth-202;}
+        var div = $('<div class="image-wrapper stickynote">')
             .css({
                 "left": e.pageX + 'px',
                 "top": e.pageY + 'px'
             })
-            .append($('<div class="stickynote"><header class="ui-widget-content"></header><body><textarea class="stickyForm"></textarea></div>'))
+            .append($('<header class="ui-widget-content"></header><body><textarea class="stickyForm"></textarea>'))
             .appendTo(document.body);
-            $( ".stickynote" ).draggable({handle:"header", containment:"#board"});
+        $( "div" ).draggable({handle:"header", containment:"#board"});
     });
 });
+/* Doesn't work. Trying to make a selected note float to the top
 var notes = $("div");
 notes.click(function(){
-    var selected = $(this), max = 0;
+    var selected = $(this), 
+    max = 0;
 
     notes.each(function(){
         var zindex = parseInt($(this).css("z-index"),10);
@@ -34,3 +37,4 @@ notes.click(function(){
     });
     selected.css("z-index",max+1);
 });
+*/

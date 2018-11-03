@@ -121,9 +121,11 @@ body {
 }
 
 .image-wrapper {
-    position: absolute;
+	position: absolute;
+	/*
     transform: translate(-50%, 0%);
-    opacity: 1;
+	opacity: 1;
+	*/
 }
 
 .ui-widget-content{
