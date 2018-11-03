@@ -33,3 +33,4 @@ C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.dll
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.pdb
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.csproj.CopyComplete
+C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Pages\Board.g.cshtml.cs
