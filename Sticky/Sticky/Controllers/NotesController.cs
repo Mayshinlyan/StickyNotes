@@ -86,6 +86,7 @@ namespace Sticky.Controllers
         [HttpPost]
         public async Task<IActionResult> PostNotes([FromBody] Notes notes)
         {
+            notes.NoteId = _context.Notes.Count() + 1;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
