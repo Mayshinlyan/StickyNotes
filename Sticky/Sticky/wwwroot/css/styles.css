@@ -97,7 +97,7 @@ input[type="submit"]:hover{
 }
 header{
 	display:flex;
-	flex: 0 1 70px;
+	height:70px;
 	background-color:black;
 	color:white;
 	justify-content: center;
@@ -109,14 +109,20 @@ header{
 	flex: 1 1 auto;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("../images/board.jpg");
 }
-/* */
+/* stickynote */
 body {
     position: relative;
 }
 
+.header2{
+	width:200px;
+	padding-left:20px;
+  	font-family: 'Satisfy',cursive;
+}
+
 .image-wrapper {
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     opacity: 1;
 }
 
@@ -142,3 +148,4 @@ body {
 	background-color:transparent;
 	border:none;
 }
+
