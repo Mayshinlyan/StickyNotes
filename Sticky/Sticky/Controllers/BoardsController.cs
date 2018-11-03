@@ -12,56 +12,56 @@ namespace Sticky.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NotesController : ControllerBase
+    public class BoardsController : ControllerBase
     {
         private readonly Stickynotes210Context _context;
 
-        public NotesController()
+        public BoardsController()
         {
             _context = new Stickynotes210Context();
         }
 
-        // GET: api/Notes
+        // GET: api/Boards
         [HttpGet]
-        public IEnumerable<Notes> GetNotes()
+        public IEnumerable<Boards> GetBoards()
         {
-            return _context.Notes;
+            return _context.Boards;
         }
 
-        // GET: api/Notes/5
+        // GET: api/Boards/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetNotes([FromRoute] int id)
+        public async Task<IActionResult> GetBoards([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var notes = await _context.Notes.FindAsync(id);
+            var boards = await _context.Boards.FindAsync(id);
 
-            if (notes == null)
+            if (boards == null)
             {
                 return NotFound();
             }
 
-            return Ok(notes);
+            return Ok(boards);
         }
 
-        // PUT: api/Notes/5
+        // PUT: api/Boards/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutNotes([FromRoute] int id, [FromBody] Notes notes)
+        public async Task<IActionResult> PutBoards([FromRoute] int id, [FromBody] Boards boards)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != notes.NoteId)
+            if (id != boards.BoardId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(notes).State = EntityState.Modified;
+            _context.Entry(boards).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +69,7 @@ namespace Sticky.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NotesExists(id))
+                if (!BoardsExists(id))
                 {
                     return NotFound();
                 }
@@ -82,23 +82,23 @@ namespace Sticky.Controllers
             return NoContent();
         }
 
-        // POST: api/Notes
+        // POST: api/Boards
         [HttpPost]
-        public async Task<IActionResult> PostNotes([FromBody] Notes notes)
+        public async Task<IActionResult> PostBoards([FromBody] Boards boards)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Notes.Add(notes);
+            _context.Boards.Add(boards);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (NotesExists(notes.NoteId))
+                if (BoardsExists(boards.BoardId))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -108,33 +108,33 @@ namespace Sticky.Controllers
                 }
             }
 
-            return CreatedAtAction("GetNotes", new { id = notes.NoteId }, notes);
+            return CreatedAtAction("GetBoards", new { id = boards.BoardId }, boards);
         }
 
-        // DELETE: api/Notes/5
+        // DELETE: api/Boards/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNotes([FromRoute] int id)
+        public async Task<IActionResult> DeleteBoards([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var notes = await _context.Notes.FindAsync(id);
-            if (notes == null)
+            var boards = await _context.Boards.FindAsync(id);
+            if (boards == null)
             {
                 return NotFound();
             }
 
-            _context.Notes.Remove(notes);
+            _context.Boards.Remove(boards);
             await _context.SaveChangesAsync();
 
-            return Ok(notes);
+            return Ok(boards);
         }
 
-        private bool NotesExists(int id)
+        private bool BoardsExists(int id)
         {
-            return _context.Notes.Any(e => e.NoteId == id);
+            return _context.Boards.Any(e => e.BoardId == id);
         }
     }
 }

@@ -7,20 +7,8 @@ namespace Sticky.Data
 {
     public partial class Stickynotes210Context : DbContext
     {
-        private static readonly Stickynotes210Context Singleton = new Stickynotes210Context();
 
-        private Stickynotes210Context()
-        {
-        }
-
-        /// <summary>
-        /// Enforces singleton pattern
-        /// </summary>
-        /// <returns> The instance of this context </returns>
-        public static Stickynotes210Context getStickyNotes210Context()
-        {
-            return Singleton;
-        }
+        public Stickynotes210Context() { }
 
         public Stickynotes210Context(DbContextOptions<Stickynotes210Context> options)
             : base(options)
