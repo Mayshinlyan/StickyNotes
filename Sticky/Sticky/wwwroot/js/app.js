@@ -9,13 +9,14 @@ function createNote(event){
 }
 */
 $(function(){
-    $(document).click(function(e){
+    $(".flex").click(function(e){
         var div = $('<div class="image-wrapper">')
             .css({
                 "left": e.pageX + 'px',
                 "top": e.pageY + 'px'
             })
-            .append($('<div class="stickynote">'))
+            .append($('<div class="stickynote"><header class="ui-widget-content"></header><body><textarea class="stickyForm"></textarea></div>'))
             .appendTo(document.body);
+            $( ".stickynote" ).draggable({handle:"header"});
     });
 });
