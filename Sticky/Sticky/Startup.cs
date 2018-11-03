@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Sticky.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sticky.Hubs;
+
 
 namespace Sticky
 {
@@ -42,6 +44,8 @@ namespace Sticky
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +67,11 @@ namespace Sticky
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<NoteHub>("/noteHub");
+            });
 
             app.UseMvc();
         }
