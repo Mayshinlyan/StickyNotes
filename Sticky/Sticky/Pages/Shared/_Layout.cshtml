@@ -6,9 +6,10 @@
     <title>@ViewData["Title"] Sticky</title>
 
     <environment include="Development">
-       
+
         <link rel="stylesheet" href="~/css/styles.css" />
         <link href="https://fonts.googleapis.com/css?family=Barlow|Satisfy&effect=3d" rel="stylesheet">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
 
     </environment>
     <environment exclude="Development">
@@ -31,9 +32,12 @@
         <environment include="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
             <script src="~/js/app.js"></script>
-      
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+
+
         </environment>
     <environment exclude="Development">
       
