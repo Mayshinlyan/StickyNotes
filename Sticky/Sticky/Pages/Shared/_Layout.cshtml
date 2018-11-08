@@ -3,19 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Sticky</title>
+    <title>@ViewData["Title"] Sticky</title>
 
     <environment include="Development">
        
         <link rel="stylesheet" href="~/css/styles.css" />
         <link href="https://fonts.googleapis.com/css?family=Barlow|Satisfy&effect=3d" rel="stylesheet">
+
     </environment>
     <environment exclude="Development">
       
         
     </environment>
 </head>
-<body class="hero-image">
+<body class="hero-image flex">
 
     <partial name="_CookieConsentPartial" />
 
@@ -32,6 +33,7 @@
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
             <script src="~/js/app.js"></script>
+      
         </environment>
     <environment exclude="Development">
       

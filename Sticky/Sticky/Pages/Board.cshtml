@@ -1,9 +1,15 @@
 ﻿@page
 
-      <header>
-          Group StickyNote
-      </header>
-      <section id="board" class="hero-image" onclick="createNote(event)">
-          
-      </section>
 
+<header>
+    <h1 class="font-effect-3d header2">Sticky Notes</h1>
+</header>
+
+<div class="stickynote"><header class="ui-widget-content"></header>
+    <textarea class="stickyForm" id="inputText"></textarea>
+</div>
+
+
+<section id="board" class="hero-image" onclick="createNote(event)"></section>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/note.js"></script>
