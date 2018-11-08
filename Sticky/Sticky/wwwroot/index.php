@@ -12,11 +12,11 @@
 <body class="hero-image">
   <section class="header">
 
-  <h1 class="font-effect-3d">Sticky Notes<h1>
+	<h1 class="font-effect-3d">Sticky Notes<h1>
   </section>
   <section class="strong">
     <div class="create"> 
-    <h1><a href="board.php">Create a new board!</h1></a>
+    <h1><a href="/Board">Create a new board!</h1></a>
     <form>
     <input type="submit" value="Create" id="createButton">
     </form>

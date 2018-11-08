@@ -12219,30 +12219,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\May\\.nuget\\packages\\": {},
+    "C:\\Users\\RyanPC\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "projectUniqueName": "c:\\Users\\RyanPC\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
       "projectName": "Sticky",
-      "projectPath": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
-      "packagesPath": "C:\\Users\\May\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\obj\\",
+      "projectPath": "c:\\Users\\RyanPC\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "packagesPath": "C:\\Users\\RyanPC\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\RyanPC\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\May\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\RyanPC\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
