@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sticky.Models
 {
     public partial class Notes
     {
         public int NoteId { get; set; }
-        public int? OwnerBoard { get; set; }
+        public int? BoardId { get; set; }
         public int? IsArchived { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
@@ -20,6 +21,7 @@ namespace Sticky.Models
         public int? Height { get; set; }
         public DateTime? LastEdit { get; set; }
 
+        [ForeignKey("BoardId")]
         public Boards OwnerBoardNavigation { get; set; }
     }
 }

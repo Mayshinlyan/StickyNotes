@@ -43,7 +43,7 @@ namespace Sticky.Controllers
             {
                 return NotFound();
             }
-
+            _context.Entry(boards).Collection(p => p.Notes).Load();
             return Ok(boards);
         }
 

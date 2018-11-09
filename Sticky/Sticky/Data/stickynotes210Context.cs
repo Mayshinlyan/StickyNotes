@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Sticky.Models;
@@ -8,7 +9,8 @@ namespace Sticky.Data
     public partial class Stickynotes210Context : DbContext
     {
 
-        public Stickynotes210Context() { }
+        public Stickynotes210Context() {
+        }
 
         public Stickynotes210Context(DbContextOptions<Stickynotes210Context> options)
             : base(options)
@@ -76,7 +78,7 @@ namespace Sticky.Data
 
                 entity.HasOne(d => d.OwnerBoardNavigation)
                     .WithMany(p => p.Notes)
-                    .HasForeignKey(d => d.OwnerBoard)
+                    .HasForeignKey(d => d.BoardId)
                     .HasConstraintName("FK__notes__OwnerBoar__5165187F");
             });
         }

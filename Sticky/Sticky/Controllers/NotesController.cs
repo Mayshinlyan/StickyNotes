@@ -87,11 +87,11 @@ namespace Sticky.Controllers
         public async Task<IActionResult> PostNotes([FromBody] Notes notes)
         {
             notes.NoteId = _context.Notes.Count() + 1;
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
             _context.Notes.Add(notes);
             try
             {
