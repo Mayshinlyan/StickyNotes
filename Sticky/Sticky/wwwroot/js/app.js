@@ -1,5 +1,5 @@
-var currentNote = {};
 /*
+var currentNote = {};
 function createNote(eventX;
     var y = event.clientY;
     currentNote.position = $("x","y");
@@ -7,8 +7,11 @@ function createNote(eventX;
 
 }
 */
+$("#login").click(function() {
+    $(".modal").slideToggle("slow");
+});
 $(function(){
-    $(".flex").click(function(e){
+    $("#board").click(function(e){
         if($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
 
