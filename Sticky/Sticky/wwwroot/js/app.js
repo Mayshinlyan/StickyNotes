@@ -7,30 +7,35 @@ function createNote(eventX;
 
 }
 */
+
 $("#login").click(function() {
     $(".modal").slideToggle("slow");
 });
+var max = 5;
+var autoID = 0;
 $(function(){
     $("#board").click(function(e){
         if($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
-
         if($(e.target).is("div")) return;
         if($(e.target).is("h1")) return;
+        autoID = autoID + 1;
+        max = findHighestZIndex('div');
         if(e.pageY > (window.innerHeight-202)){e.pageY=window.innerHeight-202;}
         if(e.pageX > (window.innerWidth-202)){e.pageX=window.innerWidth-202;}
-        var div = $('<div class="image-wrapper stickynote">')
+        var div = $('<div class="image-wrapper stickynote" id="'+autoID+'" style="z-index : '+max+'">')
             .css({
                 "left": e.pageX + 'px',
                 "top": e.pageY + 'px'
             })
-            .append($('<header class="ui-widget-content"></header><textarea class="stickyForm" id="inputText"></textarea></div>'))
+            .append($('<header class="ui-widget-content"></header><textarea class="stickyForm" id="inputText" onclick="moveUp('+autoID+')"></textarea></div>'))
             .appendTo(document.body);
-        $( "div" ).draggable({handle:"header", containment:"#board"});
+        $( "div" ).draggable({handle:"header", containment:"#board",stack:"div"});
+        
     });
 });
-/* Doesn't work. Trying to make a selected note float to the top
-var notes = $("div");
+/*
+var notes = $(".image-wrapper");
 notes.click(function(){
     var selected = $(this), 
     max = 0;
@@ -42,3 +47,22 @@ notes.click(function(){
     selected.css("z-index",max+1);
 });
 */
+function moveUp(id){
+    max = findHighestZIndex('div');
+    document.getElementById(id).style.zIndex=max ;
+}
+
+function findHighestZIndex(element)
+{
+  var selectedElements = document.getElementsByTagName(element);
+  var highest = 0;
+  for (var i = 0; i < selectedElements.length; i++)
+  {
+    var zindex=  parseInt(document.defaultView.getComputedStyle(selectedElements[i],null).getPropertyValue("z-index"),10);
+    if ((zindex > highest) && (zindex != 'auto'))
+    {
+      highest = zindex;
+    }
+  }
+  return highest+1;
+}

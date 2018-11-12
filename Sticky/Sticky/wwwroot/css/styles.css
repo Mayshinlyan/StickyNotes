@@ -116,6 +116,7 @@ header{
 	color:white;
 	background-color:transparent;
 	border:1px solid #4A90E2;
+	cursor:pointer;
 }
 /* stickynote */
 body {
@@ -151,9 +152,10 @@ nav button{
 }
 
 .image-wrapper {
-	position: absolute;
+	position:absolute;
+	z-index:auto;
 	/*
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -50%);
 	opacity: 1;
 	*/
 }
