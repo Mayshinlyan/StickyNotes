@@ -7,11 +7,15 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Sticky.Data;
+using Sticky.Models;
 
 namespace Sticky
 {
     public class Program
     {
+        
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
