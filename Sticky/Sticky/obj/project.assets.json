@@ -12219,23 +12219,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\May\\.nuget\\packages\\": {},
+    "C:\\Users\\Thabani Dube\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "projectUniqueName": "C:\\Users\\Thabani Dube\\Source\\Repos\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
       "projectName": "Sticky",
-      "projectPath": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
-      "packagesPath": "C:\\Users\\May\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\obj\\",
+      "projectPath": "C:\\Users\\Thabani Dube\\Source\\Repos\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "packagesPath": "C:\\Users\\Thabani Dube\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thabani Dube\\Source\\Repos\\StickyNotes\\Sticky\\Sticky\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\May\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Thabani Dube\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

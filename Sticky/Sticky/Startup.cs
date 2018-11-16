@@ -12,7 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Sticky.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using Sticky.Models;
+ 
 namespace Sticky
 {
     public class Startup
@@ -40,6 +41,21 @@ namespace Sticky
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            //Add the Google service for authentication
+            /*services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();*/
+
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            }) 
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.ClientId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.ClientSecret = Configuration["Authentication:Facebook:AppSecret"];
+                });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
