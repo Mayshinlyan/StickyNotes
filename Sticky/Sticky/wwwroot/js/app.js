@@ -11,9 +11,11 @@ function createNote(eventX;
 $("#login").click(function() {
     $(".modal").slideToggle("slow");
 });
+
 var max = 5;
 var autoID = 0;
 $(function(){
+    //creates stickynote when you click on the board
     $("#board").click(function(e){
         if($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
@@ -47,11 +49,14 @@ notes.click(function(){
     selected.css("z-index",max+1);
 });
 */
+
+//moves the clicked stickynote up to the top.
 function moveUp(id){
     max = findHighestZIndex('div');
     document.getElementById(id).style.zIndex=max ;
 }
 
+//finds the highest z index (duh)
 function findHighestZIndex(element)
 {
   var selectedElements = document.getElementsByTagName(element);
