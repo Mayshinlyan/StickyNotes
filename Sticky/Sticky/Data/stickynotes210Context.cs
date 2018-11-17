@@ -210,14 +210,10 @@ namespace Sticky.Data
 
             modelBuilder.Entity<UserBoards>(entity =>
             {
-                entity.HasKey(e => new { e.UserName, e.BoardId });
+                entity.HasKey(e => new { e.Id, e.BoardId });
 
-                entity.HasIndex(e => e.UserName)
-                    .HasName("UserName");
-
-                entity.Property(e => e.UserName)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
+                entity.HasIndex(e => e.Id)
+                    .HasName("Id");
 
                 entity.Property(e => e.TypeUser)
                     .HasMaxLength(255)
@@ -228,6 +224,12 @@ namespace Sticky.Data
                     .HasForeignKey(d => d.BoardId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__UserBoard__Board__5FB337D6");
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithMany(p => p.UserBoards)
+                    .HasForeignKey(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserBoards__Id__7F2BE32F");
             });
         }
     }

@@ -56,7 +56,7 @@ namespace Sticky.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != userBoards.UserName)
+            if (id != userBoards.Id)
             {
                 return BadRequest();
             }
@@ -98,7 +98,7 @@ namespace Sticky.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserBoardsExists(userBoards.UserName))
+                if (UserBoardsExists(userBoards.Id))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -108,7 +108,7 @@ namespace Sticky.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUserBoards", new { id = userBoards.UserName }, userBoards);
+            return CreatedAtAction("GetUserBoards", new { id = userBoards.Id }, userBoards);
         }
 
         // DELETE: api/UserBoards/5
@@ -134,7 +134,7 @@ namespace Sticky.Controllers
 
         private bool UserBoardsExists(string id)
         {
-            return _context.UserBoards.Any(e => e.UserName == id);
+            return _context.UserBoards.Any(e => e.Id == id);
         }
     }
 }

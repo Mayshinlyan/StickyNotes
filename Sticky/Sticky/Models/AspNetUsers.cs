@@ -12,6 +12,6 @@ namespace Sticky.Models
             UserBoards = new HashSet<UserBoards>();
         }
 
-        public ICollection<UserBoards> UserBoards { get; set; }
+        public virtual ICollection<UserBoards> UserBoards { get; set; }
     }
 }
