@@ -16,9 +16,9 @@ namespace Sticky.Controllers
     {
         private readonly Stickynotes210Context _context;
 
-        public BoardsController()
+        public BoardsController(Stickynotes210Context context)
         {
-            _context = new Stickynotes210Context();
+            _context = context;
         }
 
         // GET: api/Boards

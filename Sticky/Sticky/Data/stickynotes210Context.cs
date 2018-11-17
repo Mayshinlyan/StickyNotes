@@ -6,7 +6,7 @@ using Sticky.Models;
 
 namespace Sticky.Data
 {
-    public partial class Stickynotes210Context : DbContext
+    public partial class Stickynotes210Context : IdentityDbContext
     {
 
         public Stickynotes210Context() {
@@ -31,6 +31,7 @@ namespace Sticky.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Boards>(entity =>
             {
                 entity.HasKey(e => e.BoardId);

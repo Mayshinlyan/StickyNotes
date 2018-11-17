@@ -16,9 +16,9 @@ namespace Sticky.Controllers
     {
         private readonly Stickynotes210Context _context;
 
-        public NotesController()
+        public NotesController(Stickynotes210Context context)
         {
-            _context = new Stickynotes210Context();
+            _context = context;
         }
 
         // GET: api/Notes
