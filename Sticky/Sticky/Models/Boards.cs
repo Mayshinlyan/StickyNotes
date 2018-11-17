@@ -8,6 +8,7 @@ namespace Sticky.Models
         public Boards()
         {
             Notes = new HashSet<Notes>();
+            UserBoards = new HashSet<UserBoards>();
         }
 
         public int BoardId { get; set; }
@@ -15,5 +16,6 @@ namespace Sticky.Models
         public string BoardType { get; set; }
 
         public ICollection<Notes> Notes { get; set; }
+        public ICollection<UserBoards> UserBoards { get; set; }
     }
 }

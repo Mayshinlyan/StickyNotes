@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sticky.Models
 {
@@ -21,7 +20,6 @@ namespace Sticky.Models
         public int? Height { get; set; }
         public DateTime? LastEdit { get; set; }
 
-        [ForeignKey("BoardId")]
-        public Boards OwnerBoardNavigation { get; set; }
+        public Boards Board { get; set; }
     }
 }
