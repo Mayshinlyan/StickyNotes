@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sticky.Data;
+using Sticky.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -37,7 +38,7 @@ namespace Sticky
             services.AddDbContext<Stickynotes210Context>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AzureConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<AspNetUsers>()
                 .AddEntityFrameworkStores<Stickynotes210Context>();
 
 

@@ -6,7 +6,7 @@ using Sticky.Models;
 
 namespace Sticky.Data
 {
-    public partial class Stickynotes210Context : IdentityDbContext
+    public partial class Stickynotes210Context : IdentityDbContext<AspNetUsers>
     {
         public Stickynotes210Context()
         {
@@ -20,6 +20,7 @@ namespace Sticky.Data
         public virtual DbSet<Boards> Boards { get; set; }
         public virtual DbSet<Notes> Notes { get; set; }
         public virtual DbSet<UserBoards> UserBoards { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,6 +34,26 @@ namespace Sticky.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<AspNetUsers>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedEmail)
+                    .HasName("EmailIndex");
+
+                entity.HasIndex(e => e.NormalizedUserName)
+                    .HasName("UserNameIndex")
+                    .IsUnique()
+                    .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Email).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+
+                entity.Property(e => e.UserName).HasMaxLength(256);
+            });
             /*
             modelBuilder.Entity<AspNetRoleClaims>(entity =>
             {
