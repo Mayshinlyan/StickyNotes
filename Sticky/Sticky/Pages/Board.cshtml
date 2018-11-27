@@ -2,13 +2,19 @@
 
 
 <header>
-    <h1 class="font-effect-3d header2">Sticky Notes</h1>
+    <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
+    <nav id="login">Log in!</nav>
+    <nav style="display:none" class="modal">
+        <button>Login through Google!</button>
+        <button>Login through Facebook!</button>
+    </nav>
+    
 </header>
 
 <div id="user">May</div>
 
 
-<section id="board" class="hero-image">
+<section id="board" class="hero-image" onclick="createNote(event)"></section>
 
     @*<div id="stickynote">ddd</div>*@
 
@@ -18,6 +24,9 @@
     </div>
 
 </section>
+
+
+
 <script src="~/lib/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/note.js"></script>
 <script>
