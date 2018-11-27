@@ -7,6 +7,8 @@ function createNote(eventX;
 
 }
 */
+
+// creating sticky notes on click
 $(function(){
     $(".flex").click(function(e){
         if($(e.target).is("header")) return;
@@ -15,16 +17,24 @@ $(function(){
         if($(e.target).is("div")) return;
         if($(e.target).is("h1")) return;
         if(e.pageY > (window.innerHeight-202)){e.pageY=window.innerHeight-202;}
-        var div = $('<div class="image-wrapper">')
+        var div = $('<div class="image-wrapper" id="one">')
             .css({
                 "left": e.pageX + 'px',
                 "top": e.pageY + 'px'
             })
             .append($('<div class="stickynote"><header class="ui-widget-content"></header><body><textarea class="stickyForm" id="inputText"></textarea></div>'))
-            .appendTo(document.body);
+            .appendTo(document.getElementById('board'))
             $( ".stickynote" ).draggable({handle:"header", containment:"#board"});
     });
 });
+
+
+
+
+
+
+
+
 var notes = $("div");
 notes.click(function(){
     var selected = $(this), max = 0;
