@@ -8,12 +8,15 @@ function createNote(eventX;
 }
 */
 
+
+// creating sticky notes on click
 $("#login").click(function() {
     $(".modal").slideToggle("slow");
 });
 
 var max = 5;
 var autoID = 0;
+
 $(function(){
     //creates stickynote when you click on the board
     $("#board").click(function(e){
@@ -36,19 +39,6 @@ $(function(){
         
     });
 });
-/*
-var notes = $(".image-wrapper");
-notes.click(function(){
-    var selected = $(this), 
-    max = 0;
-
-    notes.each(function(){
-        var zindex = parseInt($(this).css("z-index"),10);
-        max = Math.max(max,zindex);
-    });
-    selected.css("z-index",max+1);
-});
-*/
 
 //moves the clicked stickynote up to the top.
 function moveUp(id){

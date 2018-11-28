@@ -9,7 +9,6 @@ C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.csproj.CoreCompileInputs.cache
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.RazorAssemblyInfo.cache
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.RazorAssemblyInfo.cs
-C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.AssemblyInfoInputs.cache
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.AssemblyInfo.cs
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.TagHelpers.input.cache
@@ -34,3 +33,4 @@ C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.pdb
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.csproj.CopyComplete
 C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Pages\Board.g.cshtml.cs
+C:\Users\May\Documents\GitHub\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
