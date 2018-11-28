@@ -194,5 +194,42 @@ nav button::-moz-focus-inner {
 	border:none;
 }
 
+/* Profile page */
+#welcome{
+	font-family: 'Barlow',sans-serif;
+	font-size:50px;
+	text-align: center;
+	padding:20px;
+	color:white;
+}
 
+#boardsListHead{
+	font-family: 'Barlow',sans-serif;
+	font-size:30px;
+	text-align: center;
+	padding:20px;
+	color:white;
+}
+
+#boardsList{
+	display:flex;
+	align-items:center;
+	height:400px;
+
+}
+
+.boardName{
+	position:absolute;
+	right:50%;
+	margin-right:300px;
+	color:white;
+	font-size:20px;
+}
+
+.boardImage{
+	position:absolute;
+	left:50%;
+	margin-left:100px;
+	width:25%;
+}
 
