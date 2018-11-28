@@ -12,34 +12,21 @@ namespace Sticky.Hubs
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
 
-        //// telling the client to update shape
-        //public async Task UpdateModel(ShapeModel clientModel)
-        //{
-        //    clientModel.LastUpdatedBy = Context.ConnectionId;
-        //    // Update the shape model within our broadcaster
-        //    await Clients.AllExcept(clientModel.LastUpdatedBy).SendAsync("UpdateShape", clientModel);
-               
-       // }
 
-        public async Task SyncBoard(string user, string message)
+        public async Task SendNoteCreated(string message)
         {
-            await Clients.All.SendAsync("BoardIsSynced", user, message);
+            await Clients.Others.SendAsync("ReceiveNote", message);
         }
 
-  
+        // drag function
+        public async Task MoveShape(int x, int y)
+        {
+            await Clients.Others.SendAsync("ShapeMoved", x, y);
+        }
+
+
     }
 
-    public class ShapeModel
-    {
-        // We declare Left and Top as lowercase with 
-        // JsonProperty to sync the client and server models
-        [JsonProperty("left")]
-        public double Left { get; set; }
-        [JsonProperty("top")]
-        public double Top { get; set; }
-        // We don't want the client to get the "LastUpdatedBy" property
-        [JsonIgnore]
-        public string LastUpdatedBy { get; set; }
-    }
 }
 
+    
