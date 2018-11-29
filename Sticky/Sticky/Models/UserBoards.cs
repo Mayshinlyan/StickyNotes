@@ -9,7 +9,7 @@ namespace Sticky.Models
         public string Id { get; set; }
         public string TypeUser { get; set; }
 
-        public Boards Board { get; set; }
+        public virtual Boards Board { get; set; }
 
         public AspNetUsers IdNavigation { get; set; }
     }
