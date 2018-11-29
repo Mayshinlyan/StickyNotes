@@ -1,8 +1,7 @@
 @using Microsoft.AspNetCore.Identity
-@using Sticky.Models
 
-@inject SignInManager<AspNetUsers> SignInManager
-@inject UserManager<AspNetUsers> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 
 @if (SignInManager.IsSignedIn(User))

@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using MsgPack.Serialization;
 using Sticky.Data;
-using Sticky.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sticky.Hubs;
@@ -39,17 +38,15 @@ namespace Sticky
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<Stickynotes210Context>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("AzureConnection")));
-            services.AddDefaultIdentity<AspNetUsers>()
-                .AddEntityFrameworkStores<Stickynotes210Context>();
+                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc()
-                            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                            .AddJsonOptions(
-                        options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                    ); 
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
 
             services.AddSignalR()
                 .AddMessagePackProtocol(options =>
@@ -64,7 +61,7 @@ namespace Sticky
                 hubOptions.KeepAliveInterval = TimeSpan.FromMinutes(1);
             });
 
-            }
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
