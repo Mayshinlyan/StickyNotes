@@ -46,7 +46,6 @@ C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreap
 C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.csproj.CoreCompileInputs.cache
 C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.RazorAssemblyInfo.cache
 C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.RazorAssemblyInfo.cs
-C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.AssemblyInfoInputs.cache
 C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.AssemblyInfo.cs
 C:\Users\Thabani Dube\Source\Repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Sticky.TagHelpers.input.cache
@@ -74,3 +73,7 @@ C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreap
 C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
 C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
 C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Logout.g.cshtml.cs
+C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Manage\Index.g.cshtml.cs
+C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.g.cshtml.cs
+C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
+C:\Users\Thabani Dube\source\repos\StickyNotes\Sticky\Sticky\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

@@ -38,13 +38,16 @@ namespace Sticky
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI();
 
             //Add the Google service for authentication
-            /*services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();*/
+
+           // services.AddDefaultIdentity<ApplicationUser>();
+                //.AddEntityFrameworkStores<ApplicationDbContext>()
+                //.AddDefaultUI();
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
