@@ -13,8 +13,7 @@ using Sticky.Data;
 using Sticky.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Sticky.Models;
- 
+
 namespace Sticky
 {
     public class Startup
@@ -37,30 +36,11 @@ namespace Sticky
             });
 
             services.AddDbContext<Stickynotes210Context>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("AzureConnection")));
             services.AddDefaultIdentity<AspNetUsers>()
                 .AddEntityFrameworkStores<Stickynotes210Context>();
 
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI();
-
-            //Add the Google service for authentication
-
-           // services.AddDefaultIdentity<ApplicationUser>();
-                //.AddEntityFrameworkStores<ApplicationDbContext>()
-                //.AddDefaultUI();
-
-            services.AddAuthentication().AddGoogle(googleOptions =>
-            {
-                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-            }) 
-            .AddFacebook(facebookOptions =>
-            {
-                facebookOptions.ClientId = Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.ClientSecret = Configuration["Authentication:Facebook:AppSecret"];
-                });
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
