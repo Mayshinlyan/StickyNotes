@@ -14,8 +14,10 @@ using MsgPack.Serialization;
 using Sticky.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 using Sticky.Hubs;
 
+using Sticky.Models;
 
 namespace Sticky
 {
@@ -41,9 +43,26 @@ namespace Sticky
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AzureConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI();
 
+            //Add the Google service for authentication
+
+           // services.AddDefaultIdentity<ApplicationUser>();
+                //.AddEntityFrameworkStores<ApplicationDbContext>()
+                //.AddDefaultUI();
+
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            })
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.ClientId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.ClientSecret = Configuration["Authentication:Facebook:AppSecret"];
+                });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -54,7 +73,7 @@ namespace Sticky
                     //options.SerializationContext.DictionarySerlaizationOptions.KeyTransformer = DictionaryKeyTransformers.LowerCamel;
                 });
 
-            //enabling signalr detailed errors 
+            //enabling signalr detailed errors
             services.AddSignalR(hubOptions =>
             {
                 hubOptions.EnableDetailedErrors = true;
@@ -91,7 +110,7 @@ namespace Sticky
             app.UseMvc();
 
 
-           
+
         }
     }
 }
