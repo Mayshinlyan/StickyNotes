@@ -14,11 +14,11 @@ using MsgPack.Serialization;
 using Sticky.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 using Sticky.Hubs;
 
-using Sticky.Models;
 
+using Sticky.Models;
+ 
 namespace Sticky
 {
     public class Startup
@@ -45,7 +45,8 @@ namespace Sticky
                     Configuration.GetConnectionString("AzureConnection")));
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI();
+
+
 
             //Add the Google service for authentication
 
@@ -57,7 +58,7 @@ namespace Sticky
             {
                 googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
                 googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-            })
+            }) 
             .AddFacebook(facebookOptions =>
             {
                 facebookOptions.ClientId = Configuration["Authentication:Facebook:AppId"];
@@ -73,7 +74,7 @@ namespace Sticky
                     //options.SerializationContext.DictionarySerlaizationOptions.KeyTransformer = DictionaryKeyTransformers.LowerCamel;
                 });
 
-            //enabling signalr detailed errors
+            //enabling signalr detailed errors 
             services.AddSignalR(hubOptions =>
             {
                 hubOptions.EnableDetailedErrors = true;
@@ -110,7 +111,7 @@ namespace Sticky
             app.UseMvc();
 
 
-
+           
         }
     }
 }

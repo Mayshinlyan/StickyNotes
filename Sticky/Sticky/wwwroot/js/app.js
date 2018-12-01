@@ -16,8 +16,14 @@ $("#login").click(function() {
 
 var max = 5;
 var autoID = 0;
+var url = window.location.pathname.split("/")[1];
 
 $(function(){
+    //removes styles from identity pages
+    if(url=="Identity"){
+       $('link[rel=stylesheet][href="styles.css"]').remove(); 
+    }
+    
     //creates stickynote when you click on the board
     $("#board").click(function(e){
         if($(e.target).is("header")) return;
