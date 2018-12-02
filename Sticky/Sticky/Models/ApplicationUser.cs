@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace Sticky.Models
 {
-    public class ApplicationUser : IdentityUser
+    public partial class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+            UserBoards = new HashSet<UserBoard>();
+        }
+
         public string ApplicationUserID;
         //Any info about users here
         [PersonalData]
         public string DisplayName { get; set; }
 
         [PersonalData]
-
-        public List<UserBoard> UserBoards { get; set; }
+        public ICollection<UserBoard> UserBoards { get; set; }
 
         [PersonalData]
-        public List<Invite> InvitesReceived { get; set; }
+        public ICollection<Invite> InvitesReceived { get; set; }
     }
 }

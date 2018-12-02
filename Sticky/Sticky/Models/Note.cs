@@ -26,6 +26,6 @@ namespace Sticky.Models
         public int BoardID { get; set; }
 
         [ForeignKey("BoardID")]
-        public Board Board { get; set; }
+        public virtual Board Board { get; set; }
     }
 }

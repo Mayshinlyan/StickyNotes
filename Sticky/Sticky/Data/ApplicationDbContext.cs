@@ -15,7 +15,7 @@ namespace Sticky.Data
         public DbSet<Note> Notes { get; set; }
         public DbSet<Invite> Invites { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<UserBoard> userBoards { get; set; }
+        public DbSet<UserBoard> UserBoards { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -27,7 +27,7 @@ namespace Sticky.Data
         {
             base.OnModelCreating(builder);
             //For many to many relationships of boards and users
-            builder.Entity<Note>()
+          /*  builder.Entity<Note>()
                 .HasOne(n => n.Board)
                 .WithMany(b => b.Notes)
                 .HasForeignKey(n => n.BoardID);
@@ -48,7 +48,7 @@ namespace Sticky.Data
            builder.Entity<UserBoard>()
                 .HasOne(ub => ub.ApplicationUser)
                 .WithMany(u => u.UserBoards)
-                .HasForeignKey(ub => ub.ApplicationUserID); 
+                .HasForeignKey(ub => ub.ApplicationUserID); */
                
 
             

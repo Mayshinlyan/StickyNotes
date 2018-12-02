@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sticky.Models
 {
-    public class Invite
+    public partial class Invite
     {
         public int InviteID { get; set; }
 
