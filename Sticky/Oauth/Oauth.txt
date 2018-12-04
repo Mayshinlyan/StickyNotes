@@ -1,6 +1,0 @@
--Group of users that have access to the same database
--when user creates a new project, new group of users and a database with just one initial user is created.
-
-1.Login screen.
-2. After authorization see list of current projects they are part of
-3.Click on the project and go to board straight
