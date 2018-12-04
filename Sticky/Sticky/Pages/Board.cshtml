@@ -1,0 +1,27 @@
+﻿@page
+
+
+<header>
+    <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
+    <nav id="login">Log in!</nav>
+    <nav style="display:none" class="modal">
+        <button>Login through Google!</button>
+        <button>Login through Facebook!</button>
+        <ul>
+            <li>
+                <a asp-area="Identity" asp-page="Account/Login">boo</a>
+            </li>
+        </ul>
+    </nav>
+    
+</header>
+
+<section id="board" class="hero-image" onclick="createNote(event)"></section>
+
+
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/note.js"></script>
+<script>
+
+</script>
