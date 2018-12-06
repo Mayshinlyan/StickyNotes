@@ -8647,11 +8647,10 @@
       ]
     },
     "System.Data.Common/4.1.0": {
-      "sha512": "DeahGetUucjHvnBefS9NPhnkQunFmJ/DEI+88kHe49Grj8jUW2VYI8O+fI4N24zyHDF78qMUT74/WLWlD9KKeA==",
+      "sha512": "epU8jeTe7aE7RqGHq9rZ8b0Q4Ah7DgubzHQblgZMSqgW1saW868WmooSyC5ywf8upLBkcVLDu93W9GPWUYsU2Q==",
       "type": "package",
       "path": "system.data.common/4.1.0",
       "files": [
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12638,28 +12637,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RyanPC\\.nuget\\packages\\": {},
+    "C:\\Users\\Thabani Dube\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RyanPC\\Documents\\GitHub\\StickyNotes\\sticky\\sticky\\Sticky.csproj",
+      "projectUniqueName": "C:\\Users\\Thabani Dube\\Source\\Repos\\StickyNotes2\\Sticky\\Sticky\\Sticky.csproj",
       "projectName": "Sticky",
-      "projectPath": "C:\\Users\\RyanPC\\Documents\\GitHub\\StickyNotes\\sticky\\sticky\\Sticky.csproj",
-      "packagesPath": "C:\\Users\\RyanPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RyanPC\\Documents\\GitHub\\StickyNotes\\sticky\\sticky\\obj\\",
+      "projectPath": "C:\\Users\\Thabani Dube\\Source\\Repos\\StickyNotes2\\Sticky\\Sticky\\Sticky.csproj",
+      "packagesPath": "C:\\Users\\Thabani Dube\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thabani Dube\\Source\\Repos\\StickyNotes2\\Sticky\\Sticky\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\RyanPC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Thabani Dube\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

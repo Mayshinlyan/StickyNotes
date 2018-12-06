@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "5d4e260b0b24f9de589667e2f758164151e76b2a"
+    "signature": "78a94d905f136ec7a875c66ec9e754561216a5c6"
   },
   "compilationOptions": {
     "defines": [
@@ -184,15 +184,6 @@
           "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {}
         }
       },
-      "Microsoft.IO.RecyclableMemoryStream/1.2.2": {
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.IO.RecyclableMemoryStream.dll": {
-            "assemblyVersion": "1.2.2.0",
-            "fileVersion": "1.2.2.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.IO.RecyclableMemoryStream.dll": {}
       "Microsoft.EntityFrameworkCore/2.1.4": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "2.1.4",
@@ -260,6 +251,17 @@
       "Microsoft.EntityFrameworkCore.Tools/2.1.4": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.1.4"
+        }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.2.2": {
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.IO.RecyclableMemoryStream.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.IO.RecyclableMemoryStream.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.1.0": {
@@ -765,6 +767,8 @@
           "System.Runtime.Extensions": "4.3.0",
           "System.Text.RegularExpressions": "4.3.0",
           "System.Threading.Tasks": "4.3.0"
+        }
+      },
       "System.Diagnostics.DiagnosticSource/4.5.1": {
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
@@ -804,6 +808,18 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Linq.Queryable/4.0.1": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
       "WebApiContrib.Core.Formatter.MessagePack/2.0.0": {
         "dependencies": {
           "MessagePack": "1.7.3.4",
@@ -817,16 +833,6 @@
         },
         "compile": {
           "lib/netstandard2.0/WebApiContrib.Core.Formatter.MessagePack.dll": {}
-      "System.Linq.Queryable/4.0.1": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3659,7 +3665,7 @@
     "CommonSerializer/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YPBBtw29NsMAX4YqCKqXh7Umn9ArhWnxquXKLvbs1ih2TKB+po+c+W+D43wu40CvFpOaot+lYMTTj7dZ5mxWuQ==",
+      "sha512": "sha512-WAGN1CuutRalJV9dqT0EtMVp6u1AsdfKrKQMMuE/Ve7rlYM6vU1Mrh7QWIXKjCYKP03Hy42NVjssUguGgpAIug==",
       "path": "commonserializer/1.1.1",
       "hashPath": "commonserializer.1.1.1.nupkg.sha512"
     },
@@ -3740,12 +3746,6 @@
       "path": "microsoft.codeanalysis.workspaces.common/2.8.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.2.8.0.nupkg.sha512"
     },
-    "Microsoft.IO.RecyclableMemoryStream/1.2.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rVilnCM72Wi9oCAh6sMmOCDSy71/UskHLxhk+OXLJp4C6Uby2GOUeL/9fHMaAYCL4iJECXOOFEfhfgYE5u8HKw==",
-      "path": "microsoft.io.recyclablememorystream/1.2.2",
-      "hashPath": "microsoft.io.recyclablememorystream.1.2.2.nupkg.sha512"
     "Microsoft.EntityFrameworkCore/2.1.4": {
       "type": "package",
       "serviceable": true,
@@ -3787,6 +3787,13 @@
       "sha512": "sha512-+mMAfPku3xFvFgzEYtFYZ6yek8EJz6NJq6AhO/yaqW2RS+6INWS54dfhy3qOddX2EXqE1ZEhkz5L1Zf1F8rAdQ==",
       "path": "microsoft.entityframeworkcore.tools/2.1.4",
       "hashPath": "microsoft.entityframeworkcore.tools.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.IO.RecyclableMemoryStream/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rVilnCM72Wi9oCAh6sMmOCDSy71/UskHLxhk+OXLJp4C6Uby2GOUeL/9fHMaAYCL4iJECXOOFEfhfgYE5u8HKw==",
+      "path": "microsoft.io.recyclablememorystream/1.2.2",
+      "hashPath": "microsoft.io.recyclablememorystream.1.2.2.nupkg.sha512"
     },
     "Microsoft.NETCore.App/2.1.0": {
       "type": "package",
@@ -3889,7 +3896,7 @@
     "MsgPack/0.1.0.2011042300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9s9OOf5J3ZDQj4WNKdpoA0Ui1FB7E4m1EY0D9fpw0EwGplspnBSzS7XgdEFodHOqbVwy9lDPVsvx91mG8fLwbQ==",
+      "sha512": "sha512-fZ9EdVgkGIRd4jvXGgyMpP9kjA/eI2Ziyd8tmncUpefhLhPS8VSiZ9Sa6Pwrbmb2F0jbtC8XMQ+EfNHntx3cJg==",
       "path": "msgpack/0.1.0.2011042300",
       "hashPath": "msgpack.0.1.0.2011042300.nupkg.sha512"
     },
@@ -3976,6 +3983,7 @@
       "sha512": "sha512-epU8jeTe7aE7RqGHq9rZ8b0Q4Ah7DgubzHQblgZMSqgW1saW868WmooSyC5ywf8upLBkcVLDu93W9GPWUYsU2Q==",
       "path": "system.data.common/4.1.0",
       "hashPath": "system.data.common.4.1.0.nupkg.sha512"
+    },
     "System.Diagnostics.DiagnosticSource/4.5.1": {
       "type": "package",
       "serviceable": true,
@@ -3997,18 +4005,19 @@
       "path": "system.linq.parallel/4.3.0",
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
-    "WebApiContrib.Core.Formatter.MessagePack/2.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-edss44EXfrwCfEL6mhZBdoOm6GGaHB96tdNCqVdNL5Z65nft8NRTKzBpEqFxPP9n9TH4GQY3ZKhtYtUe09A/sw==",
-      "path": "webapicontrib.core.formatter.messagepack/2.0.0",
-      "hashPath": "webapicontrib.core.formatter.messagepack.2.0.0.nupkg.sha512"
     "System.Linq.Queryable/4.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "WebApiContrib.Core.Formatter.MessagePack/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-edss44EXfrwCfEL6mhZBdoOm6GGaHB96tdNCqVdNL5Z65nft8NRTKzBpEqFxPP9n9TH4GQY3ZKhtYtUe09A/sw==",
+      "path": "webapicontrib.core.formatter.messagepack/2.0.0",
+      "hashPath": "webapicontrib.core.formatter.messagepack.2.0.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",
