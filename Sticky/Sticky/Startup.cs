@@ -44,7 +44,7 @@ namespace Sticky
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AzureConnection")));
             services.AddDefaultIdentity<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 
