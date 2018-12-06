@@ -11,17 +11,49 @@ connection.on("ReceiveMessage", function (user, message) {
 
 // receiving the stickynotes creation
 connection.on("ReceiveNote", function (message) {
-    console.log(message);
     //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    $(".active").removeClass("active");
     var board = document.getElementById("board");
     board.insertAdjacentHTML('beforeend', message);
+    var input = message.lastChild;
+    input.addEventListener("input", function (event) {
+        var user = document.getElementById("user").value;
+        var message = document.getElementById("inputText").value;
+        connection.invoke("SendMessage", user, message).catch(function (err) {
+            return console.error(err.toString());
+        });
+        event.preventDefault();
+    });
 });
 
 // receiving the stickynotes position
 connection.on('ShapeMoved', function (x, y) {
     console.log("shaped moved");
     $('.active').css({ left: x, top: y });
+    $('.active')
 });
+
+// receiving the new z-index
+connection.on('MovedUp', function (z, id) {
+    var e = document.getElementById(id);
+    e.style.zIndex = z;
+    $(".active").removeClass("active");
+    $('#' + id).addClass('active');
+    var input = e.lastChild;
+   
+   
+});
+
+//var user = document.getElementById("user").value;
+//// sending the text inside the note
+//document.getElementById("inputText").addEventListener("input", function (event) {
+//    var user = document.getElementById("user").value;
+//    var message = document.getElementById("inputText").value;
+//    connection.invoke("SendMessage", user, message).catch(function (err) {
+//        return console.error(err.toString());
+//    });
+//    event.preventDefault();
+//});
 
 
 // creating sticky notes on click
@@ -52,13 +84,6 @@ $(function () {
             })
             .append($('<header class="ui-widget-content ui-draggable"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + autoID + ')"></textarea></div>'))
             .appendTo(this);
-        //$( "div" ).draggable({handle:"header", containment:"#board",stack:"div"});
-        $('.active').draggable({
-            drag: function () {
-                console.log('dragging');
-                connection.invoke("MoveShape", this.offsetLeft, this.offsetTop || 0);
-            }
-        });
 
         $(document).trigger('noteCreated');
 
@@ -70,9 +95,8 @@ $(function () {
 function moveUp(id) {
     console.log("moveup");
     max = findHighestZIndex('div');
-    document.getElementById(id).style.zIndex = max;
-    $(".active").removeClass("active");
-    $('#' + id).addClass('active');
+   
+    connection.invoke("MovedUp", max, id|| 0)
 }
 
 //finds the highest z index (duh)
@@ -89,9 +113,40 @@ function findHighestZIndex(element) {
 }
 
 
+// drag the element and invoke MoveShape
+$(document).ready(function () {
+    var $dragging = null;
+   
+    $('#board').on("mousemove", function (e) {
+
+        if ($dragging) {
+            if (e.pageY > (window.innerHeight - 202)) { e.pageY = window.innerHeight - 202; }
+            if (e.pageX > (window.innerWidth - 202)) { e.pageX = window.innerWidth - 202; }
+
+            $dragging.offset({
+                top: e.pageY,
+                left: e.pageX
+            });
+
+            connection.invoke("MoveShape", $dragging.offset().left, $dragging.offset().top || 0)
+        }
+
+       
+    
+     });
+
+    $('#board').on("mousedown", '.active', function (e) {
+        $dragging = $(e.target.parentElement);
+    });
+
+    $('#board').on("mouseup", function (e) {
+        $dragging = null;
+    });
+});
 
 connection.start().catch(function (err) {
     console.log("heyyyyyy")
+   
     return console.error(err.toString());
 });
 
@@ -104,69 +159,14 @@ $(document).on('noteCreated', function () {
     //console.log(message);
     connection.invoke('SendNoteCreated', message).catch(function (err) {
         return console.error(err.toString());
-    });
+    }); 
     event.preventDefault();
 });
 
 
-// sending the text inside the note
-document.getElementById("inputText").addEventListener("input", function (event) {
-    var user = document.getElementById("user").value;
-    var message = document.getElementById("inputText").value;
-    connection.invoke("SendMessage", user, message).catch(function (err) {
-        return console.error(err.toString());
-    });
-    event.preventDefault();
-});
-
-
-var user = document.getElementById("user").value;
-// syncing the note itself
-
-//function syncNote() {
-//    var mutationObserver = new MutationObserver(function (mutations) {
-//        mutations.forEach(function (mutation) {
-//            console.log(mutation.target.outerHTML);
-//            var message = mutation.target.outerHTML;
-//            connection.invoke("SyncBoard", user, message).catch(function (err) {
-//                return console.error(err.toString());
-//            });
-//            mutationObserver.disconnect();
-//            event.preventDefault();
-//        });
-//    });
-
-//    mutationObserver.observe(document.getElementById("board"), {
-//        childList: true,
-//        subtree: true
-//    });
-
-//    // Takes all changes which haven’t been fired so far.
-//    var changes = mutationObserver.takeRecords();
-
-//}
-
-//document.getElementById("board").addEventListener("click", function () {
-//    syncNote();
-//})
 
 
 
-
-
-
-//document.getElementById("board").addEventListener("DOMNodeInserted", function (event) {
-//    var user = document.getElementById("user").value;
-//    var board = document.getElementById('board');
-//    var message = board.innerHTML;
-//    console.log(message);
-//    connection.invoke("SyncBoard", user, message).catch(function (err) {
-//        return console.error(err.toString());
-//    });
-    
-//    event.preventDefault();
-    
-//});
 
 
 
