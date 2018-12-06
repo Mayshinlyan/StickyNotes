@@ -45,7 +45,7 @@ connection.on('MovedUp', function (z, id) {
 });
 
 //var user = document.getElementById("user").value;
-//// sending the text inside the note
+// sending the text inside the note
 //document.getElementById("inputText").addEventListener("input", function (event) {
 //    var user = document.getElementById("user").value;
 //    var message = document.getElementById("inputText").value;
