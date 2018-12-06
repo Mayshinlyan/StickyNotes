@@ -108,7 +108,13 @@ namespace Sticky
                 routes.MapHub<NoteHub>("/noteHub");
             });
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Boards}/{action=Index}/{id?}"
+                    );
+            });
 
 
            
