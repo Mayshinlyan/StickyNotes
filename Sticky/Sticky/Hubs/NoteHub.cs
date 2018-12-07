@@ -7,9 +7,9 @@ namespace Sticky.Hubs
     public class NoteHub : Hub
     {
         // telling the client to receive message
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(string user, string message, int id)
         {
-            await Clients.Others.SendAsync("ReceiveMessage", user, message);
+            await Clients.Others.SendAsync("ReceiveMessage", user, message, id);
         }
 
         // telling the client to receive note creation 

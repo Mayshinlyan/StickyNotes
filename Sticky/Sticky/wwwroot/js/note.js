@@ -3,9 +3,9 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/noteHub").build();
 
 // receiving the text inside the note
-connection.on("ReceiveMessage", function (user, message) {
+connection.on("ReceiveMessage", function (user, message, id) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    var input = document.getElementById("inputText");
+    var input = document.getElementById(id).lastChild;
     input.value = msg;
 });
 
@@ -16,14 +16,7 @@ connection.on("ReceiveNote", function (message) {
     var board = document.getElementById("board");
     board.insertAdjacentHTML('beforeend', message);
     var input = message.lastChild;
-    input.addEventListener("input", function (event) {
-        var user = document.getElementById("user").value;
-        var message = document.getElementById("inputText").value;
-        connection.invoke("SendMessage", user, message).catch(function (err) {
-            return console.error(err.toString());
-        });
-        event.preventDefault();
-    });
+    
 });
 
 // receiving the stickynotes position
@@ -39,8 +32,17 @@ connection.on('MovedUp', function (z, id) {
     e.style.zIndex = z;
     $(".active").removeClass("active");
     $('#' + id).addClass('active');
-    var input = e.lastChild;
-   
+    var input = document.getElementById(id);
+    console.log(input);
+    input.addEventListener("input", function (event) {
+        var user = document.getElementById("user").value;
+        var message = input.lastChild.value;
+        console.log(message);
+        connection.invoke("SendMessage", user, message, id).catch(function (err) {
+            return console.error(err.toString());
+        });
+        event.preventDefault();
+    });
    
 });
 
@@ -77,7 +79,7 @@ $(function () {
         if (e.pageY > (window.innerHeight - 202)) { e.pageY = window.innerHeight - 202; }
         if (e.pageX > (window.innerWidth - 202)) { e.pageX = window.innerWidth - 202; }
         $(".active").removeClass("active");
-        var div = $('<div class="image-wrapper ui-draggable ui-draggable-handle stickynote active" id="' + autoID + '" style="z-index : ' + max + '">')
+        var div = $('<div class="image-wrapper ui-draggable-handle stickynote active" id="' + autoID + '" style="z-index : ' + max + '">')
             .css({
                 "left": e.pageX + 'px',
                 "top": e.pageY + 'px'
@@ -112,17 +114,32 @@ function findHighestZIndex(element) {
     return highest + 1;
 }
 
+//finds the highest id
+//function findHighestId() {
+//    var selectedElements = document.getElementsByClassName('.stickynote');
+//    console.log(selectedElements);
+//    var highest = 0;
+//    for (var i = 0; i < selectedElements.length; i++) {
+//        var id = parseInt(document.defaultView.getComputedStyle(selectedElements[i], null).getPropertyValue("id"), 10);
+//        if ((id > highest) && (id != 'auto')) {
+//            highest = id;
+//        }
+//    }
+//    return highest;
+//}
+
 
 // drag the element and invoke MoveShape
 $(document).ready(function () {
     var $dragging = null;
    
     $('#board').on("mousemove", function (e) {
-
+       
         if ($dragging) {
+        
             if (e.pageY > (window.innerHeight - 202)) { e.pageY = window.innerHeight - 202; }
             if (e.pageX > (window.innerWidth - 202)) { e.pageX = window.innerWidth - 202; }
-
+            //if ((e.pageX > left))
             $dragging.offset({
                 top: e.pageY,
                 left: e.pageX
@@ -130,13 +147,26 @@ $(document).ready(function () {
 
             connection.invoke("MoveShape", $dragging.offset().left, $dragging.offset().top || 0)
         }
-
-       
     
      });
 
     $('#board').on("mousedown", '.active', function (e) {
+       
         $dragging = $(e.target.parentElement);
+
+        var left = $dragging[0].style.left;
+        left = parseInt(left.replace(/px/g, ""));
+        var top = $dragging[0].style.top;
+        top = parseInt(top.replace(/px/g, ""));
+       // console.log(left, top);
+
+        console.log(e.pageX, left);
+        console.log(e.pageY, top);
+       
+        if ((e.pageX > left && e.pageX < left + 202) && (e.pageY > top + 20 && e.pageY < top + 202)) {
+            console.log();
+            $dragging = null;
+        }
     });
 
     $('#board').on("mouseup", function (e) {
