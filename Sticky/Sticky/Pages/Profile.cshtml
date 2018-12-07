@@ -1,0 +1,14 @@
+@page
+@{ var name = User.Identity.Name; }
+<header>
+    <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
+    <nav id="login">Log out</nav>
+</header>
+<section>
+    <div id="welcome">Welcome, <u>@name</u>!</div>
+    <div id="boardsListHead">Boards you're in:</div>
+</section>
+<section id="boardsList">
+    <div class="boardName">Ryan's Board</div>
+    <img class="boardImage" src="images/screenshot.png">
+</section>

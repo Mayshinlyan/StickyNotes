@@ -1,29 +1,26 @@
 ﻿@page
-<div class="container">
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-6">&nbsp;</div>
-        <div class="col-6">
-            User..........<input type="text" id="userInput" />
-            <br />
-            Message...<input type="text" id="messageInput" />
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <hr />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">&nbsp;</div>
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
 
+<div class="header">
+
+    <h1 class="font-effect-3d">Sticky Notes</h1>
+</div>
+<div class="strong">
+    <div class="create">
+        <h1><a href="/Board">Create a new board!</h1></a>
+        <form>
+            <input type="submit" value="Create" id="createButton">
+        </form>
+    </div>
+    <div class="join">
+        <h1>Join a friend's board!</h1>
+        <form>
+            Code
+            <input type="text" name="code" placeholder="Enter 9 digit code here">
+            <br>
+            <input type="submit" value="Join" id="joinButton">
+        </form>
+    </div>
 </div>
 
 
-<script src="~/lib/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/note.js"></script>
+
