@@ -69,13 +69,29 @@ var autoID = 0;
 var board = document.getElementById('board');
 $(function () {
     //creates stickynote when you click on the board
-    console.log($(document));
     $("#board").click(function (e) {
+        let apiPath = "https://localhost:44363/api/notes/"
+        let boardId = 1;
         if ($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
         if ($(e.target).is("div")) return;
         if ($(e.target).is("h1")) return;
-        autoID = autoID + 1;
+        let note = { ycoor: e.pageY, xcoor: e.pageX, boardId: boardId };
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            console.log(this.readyState);
+            console.log(this.status);
+            if (this.readyState == 4 && this.status == 201) {                
+                let note = JSON.parse(xhttp.responseText);
+                console.log(note);
+                createNoteFromJSON(note);
+                $(document).trigger('noteCreated');
+            }
+        }        
+        xhttp.open("POST", apiPath, true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(note));        
+        /* autoID = autoID + 1;
         max = findHighestZIndex('div');
         if (e.pageY > (window.innerHeight - 202)) { e.pageY = window.innerHeight - 202; }
         if (e.pageX > (window.innerWidth - 202)) { e.pageX = window.innerWidth - 202; }
@@ -86,9 +102,7 @@ $(function () {
                 "top": e.pageY + 'px'
             })
             .append($('<header class="ui-widget-content ui-draggable"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + autoID + ')"></textarea></div>'))
-            .appendTo(this);
-
-        $(document).trigger('noteCreated');
+            .appendTo(this); */
 
     });
 });
@@ -195,8 +209,6 @@ $(document).on('noteCreated', function () {
 });
 
 function createNoteFromJSON(note) {
-    console.log("try create...");
-    console.log(note);
     autoID = autoID + 1;
     max = findHighestZIndex('div');
     if (note.y > (window.innerHeight - 202)) { note.y = window.innerHeight - 202; }
@@ -219,7 +231,6 @@ function createNoteFromJSON(note) {
 function loadBoard() {
     var apiPath = "https://localhost:44363/api/boards/1"
     var xhttp = new XMLHttpRequest();
-    console.log("here")
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             // Typical action to be performed when the document is ready:
