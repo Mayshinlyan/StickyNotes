@@ -212,7 +212,7 @@ $(document).on('noteCreated', function () {
 function updateDb(id) {
     var api = "https://localhost:44363/api/Notes/" + id;
     var xhttp = new XMLHttpRequest();
-    var boardId = 1;
+    let boardId = localStorage.getItem("board");
     var elem = document.getElementById(id);
     console.log(elem);
     var x = $(elem).css("left");
@@ -265,7 +265,8 @@ function createNoteFromJSON(note) {
 
 
 function loadBoard() {
-    var apiPath = "https://localhost:44363/api/boards/1"
+    let boardId = localStorage.getItem("board");
+    var apiPath = "https://localhost:44363/api/boards/" + boardId;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
