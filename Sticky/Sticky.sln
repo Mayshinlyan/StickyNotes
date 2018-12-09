@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sticky", "Sticky\Sticky.csproj", "{E54925ED-0A9A-4F06-A4B2-5E40F798C731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sticky", "Sticky\Sticky.csproj", "{E54925ED-0A9A-4F06-A4B2-5E40F798C731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
