@@ -59,6 +59,22 @@ input[type="submit"]:hover{
   	font-family: 'Satisfy',cursive;
 	font-size:50px;
 }
+
+.profile{
+	font-family: 'Barlow', sans-serif;
+	position:fixed;
+	font-size:15px;
+	top:30px;
+	left:93%;
+	padding:20px;
+	padding-top:30px;
+	padding-bottom:30px;
+	color:white;
+	background-color:transparent;
+	border:3px solid #4A90E2;
+	border-radius:1000px;
+}
+
 .strong{
 	position:relative;
 	color: #ffffff;
@@ -145,7 +161,8 @@ body {
 	box-shadow:10px 10px 5px #555555;
 }
 
-nav button{
+#button{
+	color:black;
 	background-color:#D9B9BF;
 	padding:10px;
 	border:2px solid #98AF4B;
@@ -153,11 +170,11 @@ nav button{
 	box-shadow:3px 3px #888888;
 }
 
-nav button:active{
+#button:active{
 	box-shadow:3px 3px #888888 inset;
 }
 
-nav button::-moz-focus-inner {
+button::-moz-focus-inner {
 	border: 0;
 }
   
@@ -183,6 +200,19 @@ nav button::-moz-focus-inner {
 	height:200px;
 	background-color:rgb(255, 255, 79);
 	border:1px solid rgb(85, 85, 85);
+}
+
+.close{
+	color:black;
+	font-size:25px;
+	opacity:.3;
+	margin-left:185px;
+	margin-bottom:4px;
+}
+
+.close:hover{
+	opacity:1;
+	cursor:pointer;
 }
 
 .stickyForm{

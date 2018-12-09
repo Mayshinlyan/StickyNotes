@@ -72,6 +72,7 @@ namespace Sticky.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
+                Console.WriteLine("hi");
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);

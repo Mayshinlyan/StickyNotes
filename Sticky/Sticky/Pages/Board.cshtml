@@ -3,16 +3,13 @@
 
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
-    <nav id="login">Log in!</nav>
+    <nav id="login">Settings</nav>
     <nav style="display:none" class="modal">
-        <button>Login through Google!</button>
-        <button>Login through Facebook!</button>
-        <ul>
-            <li>
-                <a asp-area="Identity" asp-page="Account/Login">boo</a>
-            </li>
-        </ul>
+        <a id="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
+        <a id="button" asp-area="Identity" asp-page="Account/Login">Log in through Google</a>
+        <a id="button" asp-area="Identity" asp-page="Account/Login">Log in through Facebook</a>
     </nav>
+    
     
 </header>
 

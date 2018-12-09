@@ -39,12 +39,16 @@ $(function(){
                 "left": e.pageX + 'px',
                 "top": e.pageY + 'px'
             })
-            .append($('<header class="ui-widget-content"></header><textarea class="stickyForm" id="inputText" onclick="moveUp('+autoID+')"></textarea></div>'))
+            .append($('<header class="ui-widget-content"><div class="close" onclick="deleteNote('+autoID+')">×</div></header><textarea class="stickyForm" id="inputText" onclick="moveUp('+autoID+')"></textarea></div>'))
             .appendTo(document.body);
         $( "div" ).draggable({handle:"header", containment:"#board",stack:"div"});
         
     });
 });
+
+function deleteNote(id){
+    $('#'+id+'').remove();
+}
 
 //moves the clicked stickynote up to the top.
 function moveUp(id){

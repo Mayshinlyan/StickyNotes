@@ -2,7 +2,10 @@
 @model AboutModel
 @{
     ViewData["Title"] = "About";
+        Layout = "/Pages/Shared/_LayoutIdentity.cshtml";
+
 }
+
 <h2>@ViewData["Title"]</h2>
 <h3>@Model.Message</h3>
 
