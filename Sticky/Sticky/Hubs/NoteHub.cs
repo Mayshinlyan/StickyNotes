@@ -6,27 +6,33 @@ namespace Sticky.Hubs
 {
     public class NoteHub : Hub
     {
-        // telling the client to receivemessage
-        public async Task SendMessage(string user, string message)
+        // telling the client to receive message
+        public async Task SendMessage(string user, string message, int id)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            await Clients.Others.SendAsync("ReceiveMessage", user, message, id);
         }
 
-        //// telling the client to update shape
-        //public async Task UpdateModel(ShapeModel clientModel)
-        //{
-        //    clientModel.LastUpdatedBy = Context.ConnectionId;
-        //    // Update the shape model within our broadcaster
-        //    await Clients.AllExcept(clientModel.LastUpdatedBy).SendAsync("UpdateShape", clientModel);
-               
-       // }
-
-        public async Task SyncBoard(string user, string message)
+        // telling the client to receive note creation 
+        public async Task SendNoteCreated(string message)
         {
-            await Clients.All.SendAsync("BoardIsSynced", user, message);
+            await Clients.Others.SendAsync("ReceiveNote", message);
         }
 
-  
+        // drag function
+        public async Task MoveShape(int x, int y)
+        {
+            await Clients.Others.SendAsync("ShapeMoved", x, y);
+        }
+
+        // move up 
+        public async Task MovedUp(int z, int id)
+        {
+            await Clients.All.SendAsync("MovedUp", z, id);
+        }
+
+
+
+
     }
 
     public class ShapeModel

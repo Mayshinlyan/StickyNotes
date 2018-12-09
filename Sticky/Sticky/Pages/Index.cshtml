@@ -7,8 +7,9 @@
 <div class="strong">
     <div class="create">
         <h1><a href="/Board">Create a new board!</h1></a>
-        <form>
-            <input type="submit" value="Create" id="createButton">
+        <form action="/Board" method="post">
+            <!-- Create New Board -->
+            <input type="submit" name ="boardId" value="Create" id="createButton">
         </form>
     </div>
     <div class="join">

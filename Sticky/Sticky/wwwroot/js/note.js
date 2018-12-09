@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/noteHub").build();
+var connection = new signalR.HubConnectionBuilder().withUrl("/NoteHub").build();
 
 // receiving the text inside the note
 connection.on("ReceiveMessage", function (user, message, id) {
@@ -81,7 +81,7 @@ $(function () {
         xhttp.onreadystatechange = function () {
             console.log(this.readyState);
             console.log(this.status);
-            if (this.readyState == 4 && this.status == 201) {                
+            if (this.readyState == 4 && this.status >= 200 && this.status < 300) {                
                 let note = JSON.parse(xhttp.responseText);
                 console.log(note);
                 createNoteFromJSON(note);
@@ -149,20 +149,21 @@ $(document).ready(function () {
     var $dragging = null;
    
     $('#board').on("mousemove", function (e) {
-       
         if ($dragging) {
         
             if (e.pageY > (window.innerHeight - 202)) { e.pageY = window.innerHeight - 202; }
             if (e.pageX > (window.innerWidth - 202)) { e.pageX = window.innerWidth - 202; }
             //if ((e.pageX > left))
+            y = e.pageY;
+            x = e.pageX;
             $dragging.offset({
                 top: e.pageY,
                 left: e.pageX
             });
-
+            Console.log($dragging);
             connection.invoke("MoveShape", $dragging.offset().left, $dragging.offset().top || 0)
         }
-    
+
      });
 
     $('#board').on("mousedown", '.active', function (e) {
@@ -208,20 +209,55 @@ $(document).on('noteCreated', function () {
     event.preventDefault();
 });
 
+function updateDb(id) {
+    var api = "https://localhost:44363/api/Notes/" + id;
+    var xhttp = new XMLHttpRequest();
+    var boardId = 1;
+    var elem = document.getElementById(id);
+    console.log(elem);
+    var x = $(elem).css("left");
+    var y = $(elem).css("top");
+    x = x.substring(0, x.length - 2);
+    y = y.substring(0, y.length - 2);
+    console.log(x);
+    console.log(y);
+    var note = { noteId: id, body: elem.lastChild.value, xcoor: x, ycoor: y, boardId: boardId }
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
+            console.log("Done???");
+        }
+    };
+    xhttp.open("PUT", api);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(note));       
+}
+
 function createNoteFromJSON(note) {
     autoID = autoID + 1;
     max = findHighestZIndex('div');
     if (note.y > (window.innerHeight - 202)) { note.y = window.innerHeight - 202; }
     if (note.x > (window.innerWidth - 202)) { note.x = window.innerWidth - 202; }
+
     $(".active").removeClass("active");
     var div = $('<div class="image-wrapper stickynote" id="' + note.noteId + '" style="z-index : ' + max + '">')
         .css({
             "left": note.xcoor + 'px',
             "top": note.ycoor + 'px'
         })
-        .append($('<header class="ui-widget-content"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')"></textarea></div>'))
+        .append($('<header class="ui-widget-content"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
         .appendTo(document.body);
-    $("div").draggable({ handle: "header", containment: "#board", stack: "div" });
+    $("div").draggable({ handle: "header", containment: "#board", stack: "div" }); 
+
+
+    /* $(".active").removeClass("active");
+    var div = $('<div class="image-wrapper ui-draggable-handle stickynote active" id="' + note.noteId + '" style="z-index : ' + max + '">')
+        .css({
+            "left": note.xcoor + 'px',
+            "top": note.ycoor + 'px'
+        })
+        .append($('<header class="ui-widget-content ui-draggable"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')"></textarea></div>'))
+        .appendTo(document.body); */
+
 
     var input = document.getElementById(note.noteId).lastChild;
     input.value = note.body;
@@ -232,7 +268,7 @@ function loadBoard() {
     var apiPath = "https://localhost:44363/api/boards/1"
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
             // Typical action to be performed when the document is ready:
             let response = JSON.parse(xhttp.responseText);
             console.log(response.notes);
