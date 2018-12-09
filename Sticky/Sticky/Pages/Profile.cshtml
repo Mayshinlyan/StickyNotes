@@ -4,11 +4,15 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
+@if (!SignInManager.IsSignedIn(User))
+{
+    <meta http-equiv="Refresh" content="0; url=/Index" />
+}
 
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-        <button type="submit" class="btn btn-link navbar-btn navbar-link" id="login">Logout</button>
+        <button type="submit" class="btn btn-link navbar-btn navbar-link" id="login">Log Out!</button>
     </form>
 </header>
 
