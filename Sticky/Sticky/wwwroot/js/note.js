@@ -71,7 +71,7 @@ $(function () {
     //creates stickynote when you click on the board
     $("#board").click(function (e) {
         let apiPath = "https://localhost:44363/api/notes/"
-        let boardId = 1;
+        let boardId = localStorage.getItem("board");
         if ($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
         if ($(e.target).is("div")) return;
