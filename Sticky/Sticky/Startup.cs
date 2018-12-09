@@ -8,13 +8,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using MsgPack.Serialization;
 using Sticky.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sticky.Hubs;
 
 
+using Sticky.Models;
+ 
 namespace Sticky
 {
     public class Startup
@@ -38,14 +42,45 @@ namespace Sticky
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+                    Configuration.GetConnectionString("AzureConnection")));
+            services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
+
+            //Add the Google service for authentication
+
+           // services.AddDefaultIdentity<ApplicationUser>();
+                //.AddEntityFrameworkStores<ApplicationDbContext>()
+                //.AddDefaultUI();
+
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            }) 
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.ClientId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.ClientSecret = Configuration["Authentication:Facebook:AppSecret"];
+                });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddSignalR();
+
+            services.AddSignalR()
+                .AddMessagePackProtocol(options =>
+                {
+                    //options.SerializationContext.DictionarySerlaizationOptions.KeyTransformer = DictionaryKeyTransformers.LowerCamel;
+                });
+
+            //enabling signalr detailed errors 
+            services.AddSignalR(hubOptions =>
+            {
+                hubOptions.EnableDetailedErrors = true;
+                hubOptions.KeepAliveInterval = TimeSpan.FromMinutes(1);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +108,16 @@ namespace Sticky
                 routes.MapHub<NoteHub>("/noteHub");
             });
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Boards}/{action=Index}/{id?}"
+                    );
+            });
+
+
+           
         }
     }
 }
