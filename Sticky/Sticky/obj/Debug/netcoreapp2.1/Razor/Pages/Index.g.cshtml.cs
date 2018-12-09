@@ -59,7 +59,7 @@ using Sticky.Data;
             WriteLiteral("\r\n<div class=\"header\">\r\n\r\n    <h1 class=\"font-effect-3d\">Sticky Notes</h1>\r\n</div>\r\n<div class=\"strong\">\r\n    <div class=\"create\">\r\n        <h1><a href=\"/Board\">Create a new board!</h1></a>\r\n        ");
             EndContext();
             BeginContext(206, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dbd238d5cd3e4484b37ffa1d3e12542d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f8578fc786a645faaa106f5de713ff58", async() => {
                 BeginContext(212, 78, true);
                 WriteLiteral("\r\n            <input type=\"submit\" value=\"Create\" id=\"createButton\">\r\n        ");
                 EndContext();
@@ -81,7 +81,7 @@ using Sticky.Data;
             WriteLiteral("\r\n    </div>\r\n    <div class=\"join\">\r\n        <h1>Join a friend\'s board!</h1>\r\n        ");
             EndContext();
             BeginContext(384, 206, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "219126df18a14ac7958ecf7886407565", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc84ab1f4cad4f52b732292a44ffba11", async() => {
                 BeginContext(390, 193, true);
                 WriteLiteral("\r\n            Code\r\n            <input type=\"text\" name=\"code\" placeholder=\"Enter 9 digit code here\">\r\n            <br>\r\n            <input type=\"submit\" value=\"Join\" id=\"joinButton\">\r\n        ");
                 EndContext();
