@@ -154,7 +154,7 @@ namespace Sticky.Controllers
             _context.Notes.Remove(notes);
             await _context.SaveChangesAsync();*/
 
-            return Ok(notes);
+            //return Ok(notes);
         }
 
         private bool NotesExists(int id)
