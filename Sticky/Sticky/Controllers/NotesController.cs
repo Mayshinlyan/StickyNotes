@@ -124,7 +124,7 @@ namespace Sticky.Controllers
             }
 
             var notes = await _context.Notes.FindAsync(id);
-            notes.BoardId = -1;
+            notes.BoardId = 1;
 
             _context.Entry(notes).State = EntityState.Modified;
 

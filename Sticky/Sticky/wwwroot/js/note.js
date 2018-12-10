@@ -232,6 +232,19 @@ function updateDb(id) {
     xhttp.send(JSON.stringify(note));       
 }
 
+function deleteNote(id) {
+    let api = "https://localhost:44363/api/notes/" + id;
+    $('#' + id + '').remove();
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
+            console.write("did it?");
+        }
+    }
+    xhttp.open("DELETE", api);
+    xhttp.send();
+}
+
 function createNoteFromJSON(note) {
     autoID = autoID + 1;
     max = findHighestZIndex('div');
@@ -244,7 +257,7 @@ function createNoteFromJSON(note) {
             "left": note.xcoor + 'px',
             "top": note.ycoor + 'px'
         })
-        .append($('<header class="ui-widget-content"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
+        .append($('<header class="ui-widget-content"><div class="close" onclick="deleteNote(' + note.noteId +')">×</div></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
         .appendTo(document.body);
     $("div").draggable({ handle: "header", containment: "#board", stack: "div" }); 
 
