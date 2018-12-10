@@ -257,7 +257,7 @@ function createNoteFromJSON(note) {
             "left": note.xcoor + 'px',
             "top": note.ycoor + 'px'
         })
-        .append($('<header class="ui-widget-content"><div class="close" onclick="deleteNote(' + note.noteId +')">×</div></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
+        .append($('<header class="ui-widget-content"><div class="close" onclick="deleteNote(' + note.noteId +')">×</div>  <div class="save" onclick="updateDb(' + note.noteId + ')">save</div></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
         .appendTo(document.body);
     $("div").draggable({ handle: "header", containment: "#board", stack: "div" }); 
 

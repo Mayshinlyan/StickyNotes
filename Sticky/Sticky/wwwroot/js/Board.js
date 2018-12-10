@@ -14,10 +14,22 @@
     xhttp.send(JSON.stringify(board));
 }
 
-function joinBoard() {
+function joinBoard(id) {
     let url = "https://localhost:44363/Board";
     let boardId = document.getElementById("EnterBoard").value;
+    let xhttp = new XMLHttpRequest();
+    let userboard = {boardId: boardId, id : id};
+    let api = "https://localhost:44363/api/userboards/";
+    xhttp.onreadystatechange = function () {
+        console.log(this.readyState);
+        if (this.readyState == 4) {
+            // empty now :)
+        }
+    }
+    console.log(userboard);
+    xhttp.open("POST", api, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(userboard));
     localStorage.setItem("board", boardId);
     window.location.href = url;
-    console.log("here");
 }

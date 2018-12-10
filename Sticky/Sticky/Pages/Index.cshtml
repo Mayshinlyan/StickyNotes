@@ -1,7 +1,15 @@
 ﻿@page
-<div class="header">
+@using Microsoft.AspNetCore.Identity
+@using Sticky.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
+<div class="header">
     <h1 class="font-effect-3d">Sticky Notes</h1>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a href="/Profile"><div class="profile">Profile</div></a>
+    }
 </div>
 <div class="strong">
     <div class="create">
@@ -14,7 +22,7 @@
         Code
         <input type="text" name="code" placeholder="Enter Board Id Here" id="EnterBoard">
         <br>
-        <input type="submit" value="Join" id="joinButton" onclick="joinBoard()">
+        <input type="submit" value="Join" id="joinButton" onclick="joinBoard('@UserManager.GetUserId(User)')">
     </div>
 </div>
 

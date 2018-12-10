@@ -19,7 +19,7 @@ namespace Sticky.Models
         public string DisplayName { get; set; }
 
         [PersonalData]
-        public ICollection<UserBoards> UserBoards { get; set; }
+        public virtual ICollection<UserBoards> UserBoards { get; set; }
 
         [PersonalData]
         public ICollection<Invite> InvitesReceived { get; set; }
