@@ -12643,11 +12643,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andre\\OneDrive\\Documents\\URochester\\Fall 2018\\CSC210\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "projectUniqueName": "C:\\Users\\Andre\\Downloads\\Sticky-20181214T054508Z-001\\Sticky\\Sticky\\Sticky.csproj",
       "projectName": "Sticky",
-      "projectPath": "C:\\Users\\Andre\\OneDrive\\Documents\\URochester\\Fall 2018\\CSC210\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "projectPath": "C:\\Users\\Andre\\Downloads\\Sticky-20181214T054508Z-001\\Sticky\\Sticky\\Sticky.csproj",
       "packagesPath": "C:\\Users\\Andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andre\\OneDrive\\Documents\\URochester\\Fall 2018\\CSC210\\StickyNotes\\Sticky\\Sticky\\obj\\",
+      "outputPath": "C:\\Users\\Andre\\Downloads\\Sticky-20181214T054508Z-001\\Sticky\\Sticky\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,45 +1,27 @@
 ﻿@page
 
+
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
     <nav id="login">Log in!</nav>
     <nav style="display:none" class="modal">
         <button>Login through Google!</button>
         <button>Login through Facebook!</button>
+        <a id="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
     </nav>
+
 </header>
-<div id="user">May</div>
+
+
 
 <section id="board" class="hero-image">
-    @*<div class="image-wrapper stickynote ui-draggable active" id="1" style="z-index: 1; left: 313px; top: 217px;">
-            <header class="ui-widget-content ui-draggable-handle"></header>
-            <textarea class="stickyForm" id="inputText" onclick="moveUp(1)"></textarea>
-        </div>*@
+
 
 </section>
-@*<div id="stickynote">ddd</div>*@
-@*<div class="stickynote" id="1">
-        <header class="ui-widget-content"></header>
-        <textarea class="stickyForm" id="inputText"></textarea>
-    </div>*@
+
+
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- <script src="~/lib/signalr/signalr.js"></script> -->
 <script src="~/lib/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/note.js"></script>
-<script>
-
-    loadBoard();
-
-    $(function () {
-        $('.active').draggable({
-            drag: function () {
-                console.log('dragging');
-                connection.invoke("MoveShape", this.offsetLeft, this.offsetTop || 0);
-            }
-        });
-    });
-
-</script>

@@ -113,6 +113,7 @@ namespace Sticky.Controllers
             return CreatedAtAction("GetNotes", new { id = notes.NoteId }, notes);
         }
 
+        //MODIFIED TO JUST CHANGE OWNERBOARD
         // DELETE: api/Notes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNotes([FromRoute] int id)
@@ -123,15 +124,37 @@ namespace Sticky.Controllers
             }
 
             var notes = await _context.Notes.FindAsync(id);
-            if (notes == null)
+            notes.IsArchived = 1;
+
+            _context.Entry(notes).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!NotesExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+
+            /*if (notes == null)
             {
                 return NotFound();
             }
 
             _context.Notes.Remove(notes);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();*/
 
-            return Ok(notes);
+            //return Ok(notes);
         }
 
         private bool NotesExists(int id)

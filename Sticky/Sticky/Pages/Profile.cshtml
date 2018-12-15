@@ -1,13 +1,26 @@
 @page
-@{ var name = User.Identity.Name; }
+@using Microsoft.AspNetCore.Identity
+@using Sticky.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    <meta http-equiv="Refresh" content="0; url=/Index" />
+}
+
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
-    <nav id="login">Log out</nav>
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+        <button type="submit" class="btn btn-link navbar-btn navbar-link" id="login">Log Out!</button>
+    </form>
 </header>
+
 <section>
-    <div id="welcome">Welcome, <u>@name</u>!</div>
+    <div id="welcome">Welcome, @UserManager.GetUserName(User)!</div>
     <div id="boardsListHead">Boards you're in:</div>
 </section>
+
 <section id="boardsList">
     <div class="boardName">Ryan's Board</div>
     <img class="boardImage" src="images/screenshot.png">

@@ -58,12 +58,12 @@ namespace Sticky
             {
                 googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
                 googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-            });
+            })
             /*.AddFacebook(facebookOptions =>
             {
-                facebookOptions.ClientId = Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.ClientSecret = Configuration["Authentication:Facebook:AppSecret"];
-                });*/
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })*/;
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

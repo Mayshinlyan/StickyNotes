@@ -9,12 +9,12 @@
 
         <link rel="stylesheet" href="~/css/styles.css" />
         <link href="https://fonts.googleapis.com/css?family=Barlow|Satisfy&effect=3d" rel="stylesheet">
-       
+
 
     </environment>
     <environment exclude="Development">
-      
-        
+
+
     </environment>
 </head>
 <body class="hero-image flex">
@@ -23,11 +23,11 @@
 
 
         @RenderBody()
-        
+
         <footer>
-            
+
         </footer>
-   
+
 
         <environment include="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -36,14 +36,14 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
             <script src="~/js/note.js"></script>
+            <script src="~/js/Board.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
-      
 
 
         </environment>
     <environment exclude="Development">
-      
-       
+
+
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
