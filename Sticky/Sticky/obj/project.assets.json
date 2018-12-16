@@ -2813,16 +2813,7 @@
           }
         }
       },
-      "MsgPack/0.1.0.2011042300": {
-        "type": "package",
-        "compile": {
-          "lib/net40/MsgPack.dll": {}
-        },
-        "runtime": {
-          "lib/net40/MsgPack.dll": {}
-        }
-      },
-      "MsgPack.Cli/1.0.0": {
+      "MsgPack.Cli/0.8.1": {
         "type": "package",
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -2854,10 +2845,10 @@
           "System.Threading": "4.0.11"
         },
         "compile": {
-          "lib/netstandard2.0/MsgPack.dll": {}
+          "lib/netstandard1.3/MsgPack.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/MsgPack.dll": {}
+          "lib/netstandard1.3/MsgPack.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -7643,45 +7634,31 @@
         "version.txt"
       ]
     },
-    "MsgPack/0.1.0.2011042300": {
-      "sha512": "9s9OOf5J3ZDQj4WNKdpoA0Ui1FB7E4m1EY0D9fpw0EwGplspnBSzS7XgdEFodHOqbVwy9lDPVsvx91mG8fLwbQ==",
+    "MsgPack.Cli/0.8.1": {
+      "sha512": "AJ43fz/D0Qh9yw0V91hSRuwqp47PbD0Cx1q4apuTJ0GNksrnMFMxYL2r9jJpL6JZCwftWSmvvIxte9i9MtIEEA==",
       "type": "package",
-      "path": "msgpack/0.1.0.2011042300",
-      "files": [
-        "lib/net40/MsgPack.dll",
-        "msgpack.0.1.0.2011042300.nupkg.sha512",
-        "msgpack.nuspec"
-      ]
-    },
-    "MsgPack.Cli/1.0.0": {
-      "sha512": "tCawK//ujj//2WRSntQt+Y4zDY0kfg4rY4mgfZLHcyEI/mfMmP6D1q7+oFd22qLCrhVtlaNwLDsrmJkIGzuGEA==",
-      "type": "package",
-      "path": "msgpack.cli/1.0.0",
+      "path": "msgpack.cli/0.8.1",
       "files": [
         ".signature.p7s",
-        "lib/monoandroid10/MsgPack.XML",
-        "lib/monoandroid10/MsgPack.dll",
-        "lib/net35/MsgPack.XML",
-        "lib/net35/MsgPack.dll",
+        "lib/MonoAndroid10/MsgPack.dll",
+        "lib/MonoAndroid10/MsgPack.xml",
+        "lib/Xamarin.iOS10/MsgPack.XML",
+        "lib/Xamarin.iOS10/MsgPack.dll",
+        "lib/net35-client/MsgPack.XML",
+        "lib/net35-client/MsgPack.dll",
         "lib/net45/MsgPack.XML",
         "lib/net45/MsgPack.dll",
         "lib/net46/MsgPack.XML",
         "lib/net46/MsgPack.dll",
-        "lib/netstandard1.1/MsgPack.XML",
         "lib/netstandard1.1/MsgPack.dll",
-        "lib/netstandard1.3/MsgPack.XML",
+        "lib/netstandard1.1/MsgPack.xml",
         "lib/netstandard1.3/MsgPack.dll",
-        "lib/netstandard2.0/MsgPack.XML",
-        "lib/netstandard2.0/MsgPack.dll",
+        "lib/netstandard1.3/MsgPack.xml",
         "lib/sl5/MsgPack.XML",
         "lib/sl5/MsgPack.dll",
-        "lib/uap10/MsgPack.XML",
-        "lib/uap10/MsgPack.dll",
         "lib/windowsphone8/MsgPack.XML",
         "lib/windowsphone8/MsgPack.dll",
-        "lib/xamarin.ios10/MsgPack.XML",
-        "lib/xamarin.ios10/MsgPack.dll",
-        "msgpack.cli.1.0.0.nupkg.sha512",
+        "msgpack.cli.0.8.1.nupkg.sha512",
         "msgpack.cli.nuspec"
       ]
     },
@@ -12620,7 +12597,6 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "CommonSerializer.MsgPack.Cli >= 1.1.1",
-      "MessagePack >= 1.7.3.4",
       "Microsoft.AspNet.SignalR >= 2.4.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
@@ -12628,8 +12604,6 @@
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.4",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.5",
-      "MsgPack >= 0.1.0.2011042300",
-      "MsgPack.Cli >= 1.0.0",
       "WebApiContrib.Core.Formatter.MessagePack >= 2.0.0",
       "jQuery.UI.Combined >= 1.12.1"
     ]
@@ -12679,10 +12653,6 @@
             "target": "Package",
             "version": "[1.1.1, )"
           },
-          "MessagePack": {
-            "target": "Package",
-            "version": "[1.7.3.4, )"
-          },
           "Microsoft.AspNet.SignalR": {
             "target": "Package",
             "version": "[2.4.0, )"
@@ -12718,14 +12688,6 @@
             "target": "Package",
             "version": "[2.1.5, )"
           },
-          "MsgPack": {
-            "target": "Package",
-            "version": "[0.1.0.2011042300, )"
-          },
-          "MsgPack.Cli": {
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
           "WebApiContrib.Core.Formatter.MessagePack": {
             "target": "Package",
             "version": "[2.0.0, )"
@@ -12742,17 +12704,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'MsgPack 0.1.0.2011042300' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
-      "libraryId": "MsgPack",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }

@@ -8,7 +8,6 @@
   <ItemGroup>
     <PackageReference Include="CommonSerializer.MsgPack.Cli" Version="1.1.1" />
     <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
-    <PackageReference Include="MessagePack" Version="1.7.3.4" />
     <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
@@ -18,8 +17,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" PrivateAssets="All" />
-    <PackageReference Include="MsgPack" Version="0.1.0.2011042300" />
-    <PackageReference Include="MsgPack.Cli" Version="1.0.0" />
     <PackageReference Include="WebApiContrib.Core.Formatter.MessagePack" Version="2.0.0" />
   </ItemGroup>
 
