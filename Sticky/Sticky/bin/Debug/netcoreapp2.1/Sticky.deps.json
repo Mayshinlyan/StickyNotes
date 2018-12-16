@@ -3661,7 +3661,7 @@
     "CommonSerializer/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WAGN1CuutRalJV9dqT0EtMVp6u1AsdfKrKQMMuE/Ve7rlYM6vU1Mrh7QWIXKjCYKP03Hy42NVjssUguGgpAIug==",
+      "sha512": "sha512-YPBBtw29NsMAX4YqCKqXh7Umn9ArhWnxquXKLvbs1ih2TKB+po+c+W+D43wu40CvFpOaot+lYMTTj7dZ5mxWuQ==",
       "path": "commonserializer/1.1.1",
       "hashPath": "commonserializer.1.1.1.nupkg.sha512"
     },
