@@ -68,7 +68,11 @@ namespace Sticky
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 
-            services.AddSignalR();
+            services.AddSignalR()
+               .AddMessagePackProtocol(options =>
+               {
+                    //options.SerializationContext.DictionarySerlaizationOptions.KeyTransformer = DictionaryKeyTransformers.LowerCamel;
+                });
 
             //enabling signalr detailed errors 
             services.AddSignalR(hubOptions =>
