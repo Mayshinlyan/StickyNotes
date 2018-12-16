@@ -1,6 +1,7 @@
 ﻿"use strict";
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/NoteHub").build();
+connection.serverTimeoutInMilliseconds = 3600000; // 1 second
 var user = "may";
 // receiving the text inside the note
 connection.on("ReceiveMessage", function (user, message, id) {
@@ -20,11 +21,20 @@ connection.on("ReceiveNote", function (message) {
 });
 
 // receiving the stickynotes position
-connection.on('ShapeMoved', function (x, y) {
-    console.log("shaped moved");
-    $('.active').css({ left: x, top: y });
-    $('.active')
+connection.on('ShapeMoved', function (id, x, y) {
+    //console.log("shaped moved");
+    $('#' + id).css({ left: x, top: y });
+    //$('.active')
 });
+
+
+// receiving the stickynotes position
+connection.on('NoteDeleted', function (id) {
+    console.log('note deleted');
+    var element = document.getElementById(id);
+    element.parentNode.removeChild(element);
+});
+
 
 // receiving the new z-index
 connection.on('MovedUp', function (z, id) {
@@ -78,11 +88,11 @@ $(function () {
         let note = { ycoor: e.pageY, xcoor: e.pageX, boardId: boardId };
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-            console.log(this.readyState);
-            console.log(this.status);
+           // console.log(this.readyState);
+            //console.log(this.status);
             if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
                 let note = JSON.parse(xhttp.responseText);
-                console.log(note);
+                //console.log(note);
                 createNoteFromJSON(note);
                 
             }
@@ -135,7 +145,7 @@ function createNoteFromJSON(note) {
         })
         .append($('<header class="ui-widget-content"><div class="save" onclick="updateDb(' + note.noteId + ')">save</div><div class="close" onclick="deleteNote(' + note.noteId + ')">×</div> </header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
         .appendTo(board);
-    $("div").draggable({ handle: "header", containment: "#board", stack: "div" });
+   // $("div").draggable({ handle: "header", containment: "#board", stack: "div" });
     var input = document.getElementById(note.noteId).lastChild;
     input.value = note.body;
     $(document).trigger('noteCreated');
@@ -196,9 +206,10 @@ $(document).ready(function () {
                 top: e.pageY,
                 left: e.pageX
             });
-            console.log("mousemoveeeeeeeeee");
-            console.log($dragging);
-            connection.invoke("MoveShape", $dragging.offset().left, $dragging.offset().top || 0)
+                // console.log("mousemoveeeeeeeeee");
+                console.log($dragging[0].id);
+
+                connection.invoke("MoveShape", $dragging[0].id, $dragging.offset().left, $dragging.offset().top || 0)
         }
 
     });
@@ -278,6 +289,8 @@ function deleteNote(id) {
     }
     xhttp.open("DELETE", api);
     xhttp.send();
+    connection.invoke("DeleteNote", id);
+    
 }
 
 

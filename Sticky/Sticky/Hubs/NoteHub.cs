@@ -19,10 +19,19 @@ namespace Sticky.Hubs
         }
 
         // drag function
-        public async Task MoveShape(int x, int y)
+        public async Task MoveShape(int id, int x, int y)
         {
-            await Clients.Others.SendAsync("ShapeMoved", x, y);
+            await Clients.Others.SendAsync("ShapeMoved", id, x, y);
         }
+
+        // deleteNote
+        public async Task DeleteNote(int id)
+        {
+          
+            await Clients.Others.SendAsync("NoteDeleted", id);
+          
+        }
+
 
         // move up
         public async Task MovedUp(int z, int id)
