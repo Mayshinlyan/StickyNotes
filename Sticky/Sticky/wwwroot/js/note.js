@@ -234,8 +234,8 @@ $(document).ready(function () {
     });
 
     $('#board').on("mouseup", function (e) {
-        $dragging = null;        
-        let noteId = e.originalEvent.path[1].id;
+        $dragging = null;      
+        let noteId = e.target.id;
         updateDb(noteId);
     });
 
@@ -260,11 +260,16 @@ function updateDb(id) {
     var xhttp = new XMLHttpRequest();
     let boardId = localStorage.getItem("board");
     var elem = document.getElementById(id);
+    if (elem == null)
+        return;
     console.log(elem);
     var x = $(elem).css("left");
     var y = $(elem).css("top");
     x = x.substring(0, x.length - 2);
     y = y.substring(0, y.length - 2);
+    if (!($.isNumeric(x) && $.isNumeric(y))) {
+        return
+    }
     var note = { noteId: id, body: elem.lastChild.value, xcoor: x, ycoor: y, boardId: boardId }
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
