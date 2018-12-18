@@ -3,8 +3,11 @@
 /Sticky/.vs
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
+./bin
+./obj/Debug
+./obj
+bin/[Dd]ebug/
+bin/[Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
 x64/
