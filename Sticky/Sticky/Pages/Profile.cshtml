@@ -29,9 +29,10 @@
 
 <section id="boardsList">
     <!-- <div class="boardName">Your Boards!</div> -->
+    <!-- The boards are added as an unordered list -->
     <ul>
      @foreach (var board in ubs)
-        {<li class="boardName">@board.BoardId</li>}
+        {<li class="boardName" onclick="goToBoard(@board.BoardId)">@board.BoardId</li>}
     </ul>
     <img class="boardImage" src="images/screenshot.png">
 </section>

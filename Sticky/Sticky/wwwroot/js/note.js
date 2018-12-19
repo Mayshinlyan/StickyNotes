@@ -94,7 +94,7 @@ $(function () {
                 let note = JSON.parse(xhttp.responseText);
                 //console.log(note);
                 createNoteFromJSON(note);
-                
+                $(document).trigger('noteCreated');
             }
         }
         xhttp.open("POST", apiPath, true);
@@ -148,7 +148,6 @@ function createNoteFromJSON(note) {
    // $("div").draggable({ handle: "header", containment: "#board", stack: "div" });
     var input = document.getElementById(note.noteId).lastChild;
     input.value = note.body;
-    $(document).trigger('noteCreated');
 }
 
 

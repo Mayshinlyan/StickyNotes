@@ -1,4 +1,8 @@
-﻿function createNewBoard() {
+﻿/**
+ * Makes a post request to create a new board.
+ * Then takes the id of the new board and puts it in the join board box.
+ */
+function createNewBoard() {
     let api = "https://localhost:44363/api/boards/";
     let xhttp = new XMLHttpRequest();
     let board = { boardId : 0 };
@@ -14,8 +18,11 @@
     xhttp.send(JSON.stringify(board));
 }
 
+/**
+ * Registers a user with a board then redirects to the board
+ * @param {any} id the id of the user to be added
+ */
 function joinBoard(id) {
-    
     let boardId = document.getElementById("EnterBoard").value;
     let xhttp = new XMLHttpRequest();
     let userboard = { boardId: boardId, id: id };
