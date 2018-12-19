@@ -311,7 +311,6 @@ function loadBoard() {
                 let note = response.notes[i];
                 if (note.isArchived == 1)
                     continue;
-                console.log(note);
                 createNoteFromJSON(note);
             }
         }
