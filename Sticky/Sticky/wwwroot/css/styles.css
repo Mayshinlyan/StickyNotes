@@ -269,9 +269,9 @@ button::-moz-focus-inner {
 }
 
 .boardName {
-    position: absolute;
+    position: relative;
     right: 50%;
-    margin-right: 300px;
+    margin-left: 50px;
     color: white;
     font-size: 20px;
 }

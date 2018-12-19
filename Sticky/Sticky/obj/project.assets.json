@@ -4767,10 +4767,11 @@
   },
   "libraries": {
     "CommonSerializer/1.1.1": {
-      "sha512": "YPBBtw29NsMAX4YqCKqXh7Umn9ArhWnxquXKLvbs1ih2TKB+po+c+W+D43wu40CvFpOaot+lYMTTj7dZ5mxWuQ==",
+      "sha512": "WAGN1CuutRalJV9dqT0EtMVp6u1AsdfKrKQMMuE/Ve7rlYM6vU1Mrh7QWIXKjCYKP03Hy42NVjssUguGgpAIug==",
       "type": "package",
       "path": "commonserializer/1.1.1",
       "files": [
+        ".signature.p7s",
         "commonserializer.1.1.1.nupkg.sha512",
         "commonserializer.nuspec",
         "lib/netstandard1.4/CommonSerializer.dll"
@@ -12609,23 +12610,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\May\\.nuget\\packages\\": {},
+    "C:\\Users\\Andre\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "projectUniqueName": "C:\\Users\\Andre\\OneDrive\\Documents\\URochester\\Fall 2018\\CSC210\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
       "projectName": "Sticky",
-      "projectPath": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
-      "packagesPath": "C:\\Users\\May\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\May\\Documents\\GitHub\\StickyNotes\\Sticky\\Sticky\\obj\\",
+      "projectPath": "C:\\Users\\Andre\\OneDrive\\Documents\\URochester\\Fall 2018\\CSC210\\StickyNotes\\Sticky\\Sticky\\Sticky.csproj",
+      "packagesPath": "C:\\Users\\Andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andre\\OneDrive\\Documents\\URochester\\Fall 2018\\CSC210\\StickyNotes\\Sticky\\Sticky\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\May\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

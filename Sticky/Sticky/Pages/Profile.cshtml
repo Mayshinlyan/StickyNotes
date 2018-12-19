@@ -3,6 +3,12 @@
 @using Sticky.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject ApplicationDbContext _context
+
+@{
+    var id = UserManager.GetUserId(User);
+    List<UserBoards> ubs = _context.UserBoards.Where(b => b.Id.Equals(id)).ToList();
+}
 
 @if (!SignInManager.IsSignedIn(User))
 {
@@ -22,6 +28,10 @@
 </section>
 
 <section id="boardsList">
-    <div class="boardName">Ryan's Board - ID 2</div>
+    <!-- <div class="boardName">Your Boards!</div> -->
+    <ul>
+     @foreach (var board in ubs)
+        {<li class="boardName">@board.BoardId</li>}
+    </ul>
     <img class="boardImage" src="images/screenshot.png">
 </section>
