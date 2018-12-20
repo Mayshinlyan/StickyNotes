@@ -319,18 +319,22 @@ function loadBoard() {
     let boardId = localStorage.getItem("board");
     let url = window.location.href.replace(window.location.pathname, '');
     let apiPath = url + "/api/Boards/" + boardId;
-    console.log(apiPath);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
             // Typical action to be performed when the document is ready:
             let response = JSON.parse(xhttp.responseText);
-            console.log(response.notes);
+            console.log(response);
             for (let i = 0; i < response.notes.length; i++) {
                 let note = response.notes[i];
                 if (note.isArchived == 1)
                     continue;
                 createNoteFromJSON(note);
+            }
+            // sets board name if there is one
+            if (response.name != null) {
+                let elem = document.getElementById("BoardName");
+                elem.value = response.name;
             }
         }
     };

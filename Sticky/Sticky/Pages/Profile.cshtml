@@ -7,7 +7,7 @@
 
 @{
     var id = UserManager.GetUserId(User);
-    List<UserBoards> ubs = _context.UserBoards.Where(b => b.Id.Equals(id)).ToList();
+    var ubs = _context.UserBoards.Where(b => b.Id.Equals(id));
 }
 
 @if (!SignInManager.IsSignedIn(User))
@@ -32,7 +32,10 @@
     <!-- The boards are added as an unordered list -->
     <ul>
      @foreach (var board in ubs)
-        {<li class="boardName" onclick="goToBoard(@board.BoardId)">@board.BoardId</li>}
+        {
+         var b = await _context.Boards.FindAsync(board.BoardId);
+         <li class="boardName" onclick="goToBoard(@board.BoardId)">@(b.Name == null ? board.BoardId.ToString() : b.Name) </li>
+        }
     </ul>
     <img class="boardImage" src="images/screenshot.png">
 </section>
