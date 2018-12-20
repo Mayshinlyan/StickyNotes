@@ -4,6 +4,12 @@ StickyNotes is a brainstorming collaboration app for distributed group. It can a
 ## Our website
 https://sticky20181219103726.azurewebsites.net
 
+## Team Member
+1. Ryan Lin
+2. Andrew Jarvis
+3. Thabani Dube
+4. Hnin Oo Wai  (May)
+
 ## Features
 - User can sign up and alternatively via google login
 - Create sticky notes on click
