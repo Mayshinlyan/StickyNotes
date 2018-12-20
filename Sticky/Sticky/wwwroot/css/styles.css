@@ -173,7 +173,7 @@ body {
     box-shadow: 10px 10px 5px #555555;
 }
 
-#button {
+.button {
     color: black;
     background-color: #D9B9BF;
     padding: 10px;
