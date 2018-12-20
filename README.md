@@ -10,6 +10,12 @@ https://sticky20181219103726.azurewebsites.net
 3. Thabani Dube
 4. Hnin Oo Wai  (May)
 
+
+## A few notes 
+ - To create a new board: First click "Create button". It will pop up a new board number on the right. Then click "join".
+ - Click inside the note to focus it before dragging.
+ - To save the content in the note, the user need to go out of focus of the notes.
+
 ## Features
 - User can sign up and alternatively via google login
 - Create sticky notes on click
@@ -60,8 +66,6 @@ Uses Microsoft DotNet Core 2.0 Web API, MVC Framework and SignalR for syncing us
    4. B4 - External API (Google Login)
    
    
-   ## Miscellaneous
-   - Click inside the note to focus it before dragging.
-   - To save the content in the note, the user need to go out of focus of the notes.
+
    
    
