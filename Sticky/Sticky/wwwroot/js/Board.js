@@ -32,9 +32,8 @@ function joinBoard(id) {
     localStorage.setItem("board", boardId);
     xhttp.onreadystatechange = function () {
         console.log(this.readyState);
-        if (this.readyState == 4 && this.readyState >= 200 && this.readyState < 300) {
+        if (this.readyState == 4 && (this.status >= 200 && this.status < 300 || this.status==409)) {
             let redir = "/Board";
-            alert(redir);
             window.location.href = redir;
         }
     }

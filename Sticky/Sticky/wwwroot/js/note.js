@@ -59,10 +59,9 @@ connection.on('MovedUp', function (z, id) {
 
 
 // creating sticky notes on click
-$("#login").click(function () {
-    alert("HERE");
+function loginClick() {
     $(".modal").slideToggle("slow");
-});
+}
 
 var max = 5;
 var autoID = 0;
