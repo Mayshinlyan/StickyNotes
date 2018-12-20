@@ -1,5 +1,4 @@
 # StickyNotes
-==============
 StickyNotes is a brainstorming collaboration app for distributed group. It can also be used as your personal sticky notes page such as to-do-list or so. 
 
 ## File Structure
