@@ -1,6 +1,13 @@
 # StickyNotes
 StickyNotes is a brainstorming collaboration app for distributed group. It can also be used as your personal sticky notes page such as to-do-list or so. 
 
+## Features
+- User can sign up and alternatively via google login
+- Create sticky notes on click
+- Collaborate with other teammates simultaneously
+- User can have multiple boards 
+- User can store their stickynotes data 
+
 ## File Structure
 Uses Microsoft DotNet Core 2.0 Web API, MVC Framework and SignalR for syncing user board. 
 
@@ -42,4 +49,10 @@ Uses Microsoft DotNet Core 2.0 Web API, MVC Framework and SignalR for syncing us
    2. B2 - Deployment
    3. B3 - Authentification
    4. B4 - External API (Google Login)
+   
+   
+   ## Miscellaneous
+   - Click inside the note to focus it before dragging.
+   - To save the content in the note, the user need to go out of focus of the notes.
+   
    
