@@ -22,6 +22,10 @@ namespace Sticky.Controllers
         }
 
         // GET: api/Notes
+        /// <summary>
+        /// Gets all notes
+        /// </summary>
+        /// <returns> JSON of every note. </returns>
         [HttpGet]
         public IEnumerable<Notes> GetNotes()
         {
@@ -29,6 +33,11 @@ namespace Sticky.Controllers
         }
 
         // GET: api/Notes/5
+        /// <summary>
+        /// Gets a note
+        /// </summary>
+        /// <param name="id"> the id of the note</param>
+        /// <returns> If all goes well, then the note </returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetNotes([FromRoute] int id)
         {
@@ -48,6 +57,12 @@ namespace Sticky.Controllers
         }
 
         // PUT: api/Notes/5
+        /// <summary>
+        /// Updates a note
+        /// </summary>
+        /// <param name="id"> The int representing id </param>
+        /// <param name="notes"> The Note to be updated </param>
+        /// <returns> Hopefully NoContent(). If something went wrong an appropriate task </returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutNotes([FromRoute] int id, [FromBody] Notes notes)
         {
@@ -83,6 +98,11 @@ namespace Sticky.Controllers
         }
 
         // POST: api/Notes
+        /// <summary>
+        /// Makes a new note.
+        /// </summary>
+        /// <param name="notes"> The note to be added to the database </param>
+        /// <returns> Hopefully the JSON for the note, unless something goes wrong. </returns>
         [HttpPost]
         public async Task<IActionResult> PostNotes([FromBody] Notes notes)
         {
@@ -113,7 +133,11 @@ namespace Sticky.Controllers
             return CreatedAtAction("GetNotes", new { id = notes.NoteId }, notes);
         }
 
-        //MODIFIED TO JUST CHANGE OWNERBOARD
+        /// <summary>
+        /// Changes attribute isArchived to 1
+        /// </summary>
+        /// <param name="id"> The id of the note someone wants to delete </param>
+        /// <returns> An appropriate task. Hopefully NoContent(). </returns>
         // DELETE: api/Notes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNotes([FromRoute] int id)

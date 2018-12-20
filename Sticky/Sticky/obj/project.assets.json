@@ -57,6 +57,12 @@
       "Microsoft.AspNet.SignalR/2.4.0": {
         "type": "package"
       },
+      "Microsoft.AspNet.SignalR.JS/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.6.4"
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4886,6 +4892,18 @@
         ".signature.p7s",
         "microsoft.aspnet.signalr.2.4.0.nupkg.sha512",
         "microsoft.aspnet.signalr.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.SignalR.JS/2.4.0": {
+      "sha512": "atOjF/dveOYSHxY0gdESUrOmiYH397Jp8nZ41y78kocrGLUX+e93eA7DWQBfCqkw4sOW7yzyzAD2t/CquivPJA==",
+      "type": "package",
+      "path": "microsoft.aspnet.signalr.js/2.4.0",
+      "files": [
+        ".signature.p7s",
+        "content/Scripts/jquery.signalR-2.4.0.js",
+        "content/Scripts/jquery.signalR-2.4.0.min.js",
+        "microsoft.aspnet.signalr.js.2.4.0.nupkg.sha512",
+        "microsoft.aspnet.signalr.js.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -12599,6 +12617,7 @@
     ".NETCoreApp,Version=v2.1": [
       "CommonSerializer.MsgPack.Cli >= 1.1.1",
       "Microsoft.AspNet.SignalR >= 2.4.0",
+      "Microsoft.AspNet.SignalR.JS >= 2.4.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.AspNetCore.SignalR.Protocols.MessagePack >= 1.0.4",
@@ -12655,6 +12674,10 @@
             "version": "[1.1.1, )"
           },
           "Microsoft.AspNet.SignalR": {
+            "target": "Package",
+            "version": "[2.4.0, )"
+          },
+          "Microsoft.AspNet.SignalR.JS": {
             "target": "Package",
             "version": "[2.4.0, )"
           },

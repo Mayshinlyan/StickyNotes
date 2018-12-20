@@ -4,9 +4,9 @@
  */
 function createNewBoard() {
     let url = window.location.href.replace(window.location.pathname, '');
-    let api = url + "/api/boards/";
+    let api = "api/boards/";
     let xhttp = new XMLHttpRequest();
-    let board = { boardId : 0 };
+    let board = { BoardId : 0 };
     xhttp.onreadystatechange = function () {
         if (this.readystate = 4 && this.status >= 200 && this.status < 300) {
             let thing = JSON.parse(this.response);
@@ -26,23 +26,27 @@ function createNewBoard() {
 function joinBoard(id) {
     let boardId = document.getElementById("EnterBoard").value;
     let xhttp = new XMLHttpRequest();
-    let userboard = { boardId: boardId, id: id };
+    let userboard = { BoardId: boardId, Id: id };
     let url = window.location.href.replace(window.location.pathname, '');
-    let api = url + "/api/userboards/";
+    let api = "api/userboards/";
+    localStorage.setItem("board", boardId);
     xhttp.onreadystatechange = function () {
         console.log(this.readyState);
         if (this.readyState == 4 && this.readyState >= 200 && this.readyState < 300) {
-            alert(this.status);
-            
-            // empty now 🙂
+            let redir = "/Board";
+            alert(redir);
+            window.location.href = redir;
         }
     }
-    xhttp.open("POST", api, true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.send(JSON.stringify(userboard));
-    localStorage.setItem("board", boardId);
-    let redir = "https://localhost:44363/Board";
-    window.location.href = redir;
+    if (userboard.Id == '') {
+        let redir = "/Board";
+        window.location.href = redir;
+    }
+    else {
+        xhttp.open("POST", api, true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(userboard));        
+    }
 }
 
 /**
@@ -53,7 +57,7 @@ $("#BoardName").on("change paste keyup", function () {
     let xhttp = new XMLHttpRequest();
     let boardId = localStorage.getItem("board");
     let url = window.location.href.replace(window.location.pathname, '');
-    let api = url + "/api/boards/" + boardId;
+    let api = "api/boards/" + boardId;
     let board = {BoardId : boardId, Name : $(this).val()}
     xhttp.onreadystatechange = function () {
         // empty for now

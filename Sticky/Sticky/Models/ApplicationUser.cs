@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sticky.Models
 {
+    /// <summary>
+    /// Represents the ApplicationUser with some additional information.
+    /// </summary>
     public partial class ApplicationUser : IdentityUser
     {
         public ApplicationUser()

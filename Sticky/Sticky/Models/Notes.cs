@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace Sticky.Models
 {
+    /// <summary>
+    /// Represents a single note.
+    /// </summary>
     public partial class Notes
     {
         public int NoteId { get; set; }

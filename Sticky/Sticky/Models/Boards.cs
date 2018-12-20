@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace Sticky.Models
 {
+    /// <summary>
+    /// Represents a Board. Has a name, notes.
+    /// </summary>
     public partial class Boards
     {
         public Boards()

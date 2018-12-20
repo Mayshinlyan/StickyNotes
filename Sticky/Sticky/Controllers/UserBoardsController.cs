@@ -22,6 +22,10 @@ namespace Sticky.Controllers
         }
 
         // GET: api/UserBoards
+        /// <summary>
+        /// Gets all UserBoards
+        /// </summary>
+        /// <returns> All UserBoards</returns>
         [HttpGet]
         public IEnumerable<UserBoards> GetUserBoards()
         {
@@ -29,6 +33,11 @@ namespace Sticky.Controllers
         }
 
         // GET: api/UserBoards/5
+        /// <summary>
+        /// Gets a specified userboards
+        /// </summary>
+        /// <param name="id"> The composite primary key </param>
+        /// <returns> The specified userboards or an appropriate message </returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserBoards([FromRoute] string id)
         {
@@ -48,6 +57,12 @@ namespace Sticky.Controllers
         }
 
         // PUT: api/UserBoards/5
+        /// <summary>
+        /// Updates a UserBoards
+        /// </summary>
+        /// <param name="id"> The id of the UserBoards to be updated. </param>
+        /// <param name="userBoards"> The model to be used in the update </param>
+        /// <returns> NoContent or an appropriate error </returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUserBoards([FromRoute] string id, [FromBody] UserBoards userBoards)
         {
@@ -83,6 +98,11 @@ namespace Sticky.Controllers
         }
 
         // POST: api/UserBoards
+        /// <summary>
+        /// Adds a new UserBoards
+        /// </summary>
+        /// <param name="userBoards"> The UserBoards to add to the database </param>
+        /// <returns> JSON for the new UserBoards, otherwise an appropriate message </returns>
         [HttpPost]
         public async Task<IActionResult> PostUserBoards([FromBody] UserBoards userBoards)
         {
@@ -112,24 +132,15 @@ namespace Sticky.Controllers
         }
 
         // DELETE: api/UserBoards/5
+        /// <summary>
+        /// Altered to disallow removing boards for now.
+        /// </summary>
+        /// <param name="id"> The string representing the composite key used. </param>
+        /// <returns> NoContent() </returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserBoards([FromRoute] string id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var userBoards = await _context.UserBoards.FindAsync(id);
-            if (userBoards == null)
-            {
-                return NotFound();
-            }
-
-            _context.UserBoards.Remove(userBoards);
-            await _context.SaveChangesAsync();
-
-            return Ok(userBoards);
+            return NoContent();
         }
 
         private bool UserBoardsExists(string id)

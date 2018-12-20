@@ -24,6 +24,10 @@ namespace Sticky.Data
         {
         }
 
+        /// <summary>
+        /// Maps models/Database stuff
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -122,32 +126,7 @@ namespace Sticky.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__UserBoards__Id__7F2BE32F");
             });
-            //For many to many relationships of boards and users
-            /*  builder.Entity<Note>()
-                  .HasOne(n => n.Board)
-                  .WithMany(b => b.Notes)
-                  .HasForeignKey(n => n.BoardID);
-
-              builder.Entity<Invite>()
-                  .HasOne(i => i.Board)
-                  .WithMany(b => b.InvitesSent)
-                  .HasForeignKey(i => i.BoardID);
-
-              builder.Entity<UserBoard>()
-                  .HasKey(ub => new { ub.Board, ub.ApplicationUser });
-
-              builder.Entity<UserBoard>()
-                  .HasOne(ub => ub.Board)
-                  .WithMany(b => b.UserBoards)
-                  .HasForeignKey(ub => ub.BoardID);
-
-             builder.Entity<UserBoard>()
-                  .HasOne(ub => ub.ApplicationUser)
-                  .WithMany(u => u.UserBoards)
-                  .HasForeignKey(ub => ub.ApplicationUserID); */
-
-
-
+            
         }
 
     }

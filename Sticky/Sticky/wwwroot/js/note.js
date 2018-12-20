@@ -55,20 +55,12 @@ connection.on('MovedUp', function (z, id) {
 
 });
 
-//var user = document.getElementById("user").value;
-// sending the text inside the note
-//document.getElementById("inputText").addEventListener("input", function (event) {
-//    var user = document.getElementById("user").value;
-//    var message = document.getElementById("inputText").value;
-//    connection.invoke("SendMessage", user, message).catch(function (err) {
-//        return console.error(err.toString());
-//    });
-//    event.preventDefault();
-//});
+
 
 
 // creating sticky notes on click
 $("#login").click(function () {
+    alert("HERE");
     $(".modal").slideToggle("slow");
 });
 
@@ -80,7 +72,7 @@ $(function () {
     //creates stickynote when you click on the board
     $("#board").click(function (e) {
         let url = window.location.href.replace(window.location.pathname, '');
-        let apiPath = url + "/api/notes/";
+        let apiPath = "api/notes/";
         let boardId = localStorage.getItem("board");
         if ($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
@@ -101,20 +93,7 @@ $(function () {
         xhttp.open("POST", apiPath, true);
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(note));
-        /* autoID = autoID + 1;
-        max = findHighestZIndex('div');
-        if (e.pageY > (window.innerHeight - 202)) { e.pageY = window.innerHeight - 202; }
-        if (e.pageX > (window.innerWidth - 202)) { e.pageX = window.innerWidth - 202; }
-        $(".active").removeClass("active");
-        var div = $('<div class="image-wrapper ui-draggable-handle stickynote active" id="' + autoID + '" style="z-index : ' + max + '">')
-            .css({
-                "left": e.pageX + 'px',
-                "top": e.pageY + 'px'
-            })
-            .append($('<header class="ui-widget-content ui-draggable"></header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + autoID + ')"></textarea></div>'))
-            .appendTo(this);
-
-        $(document).trigger('noteCreated');*/
+       
 
     });
 });
@@ -137,6 +116,7 @@ $(document).on('noteCreated', function () {
  * @param {any} note the JSON representation of a note
  */
 function createNoteFromJSON(note) {
+    let board = document.getElementById('board');
     autoID = autoID + 1;
     max = findHighestZIndex('div');
     if (note.y > (window.innerHeight - 202)) { note.y = window.innerHeight - 202; }
@@ -150,7 +130,8 @@ function createNoteFromJSON(note) {
         })
         .append($('<header class="ui-widget-content"><div class="save" onclick="updateDb(' + note.noteId + ')">save</div><div class="close" onclick="deleteNote(' + note.noteId + ')">×</div> </header><textarea class="stickyForm" id="inputText" onclick="moveUp(' + note.noteId + ')" onfocusout="updateDb(' + note.noteId + ')"></textarea></div>'))
         .appendTo(board);
-   // $("div").draggable({ handle: "header", containment: "#board", stack: "div" });
+    console.log(div);
+    console.log(board);
     var input = document.getElementById(note.noteId).lastChild;
     input.value = note.body;
 }
@@ -264,7 +245,7 @@ connection.start().catch(function (err) {
  */
 function updateDb(id) {
     let url = window.location.href.replace(window.location.pathname, '');
-    var api = url + "/api/Notes/" + id;
+    var api = "api/Notes/" + id;
     var xhttp = new XMLHttpRequest();
     let boardId = localStorage.getItem("board");
     var elem = document.getElementById(id);
@@ -297,7 +278,7 @@ function updateDb(id) {
  */
 function deleteNote(id) {
     let url = window.location.href.replace(window.location.pathname, '');
-    let api = url + "/api/notes/" + id;
+    let api = "api/notes/" + id;
     $('#' + id + '').remove();
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -318,7 +299,7 @@ function deleteNote(id) {
 function loadBoard() { 
     let boardId = localStorage.getItem("board");
     let url = window.location.href.replace(window.location.pathname, '');
-    let apiPath = url + "/api/Boards/" + boardId;
+    let apiPath = "api/Boards/" + boardId;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {

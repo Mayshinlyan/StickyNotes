@@ -1,0 +1,58 @@
+[
+  {
+    "outputFileName": "/css/site.min.css",
+    "inputFiles": [
+      "/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "/css/styles.min.css",
+    "inputFiles": [
+      "/css/styles.css"
+    ]
+  },
+  {
+    "outputFileName": "/js/Board.min.js",
+    "inputFiles": [
+      "/js/Board.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "/js/note.min.js",
+    "inputFiles": [
+      "/js/note.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "/js/site.min.js",
+    "inputFiles": [
+      "/js/site.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "/js/Profile.min.js",
+    "inputFiles": [
+      "/js/Profile.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

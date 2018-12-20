@@ -7,29 +7,31 @@
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
     <input type="text" id="BoardName" value="Board Name!" maxlength="25"/>
-    <nav id="login">Settings</nav>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <nav style="display:none" class="modal">
-            <a id="button" href="Profile">Profile Page</a>
-            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-                <button type="submit" class="btn btn-link navbar-btn navbar-link" id="button">Log Out!</button>
-            </form>
-        </nav>
-    }
-    else
-    {
-        <nav style="display:none" class="modal">
-            <a id="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
-            <a id="button" href="Index">Home Page</a>
-        </nav>
-    }
+    <nav id="login">
+        Settings
+    </nav>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <nav style="display:none" class="modal">
+                <a id="button" href="Profile">Profile Page</a>
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link" id="button">Log Out!</button>
+                </form>
+            </nav>
+        }
+        else
+        {
+            <nav style="display:none" class="modal">
+                <a id="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
+                <a id="button" href="Index">Home Page</a>
+            </nav>
+        }
 </header>
 
 <section id="board" class="hero-image"></section>
 
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src='@Url.Content("~/lib/jquery/dist/jquery.js")'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src='@Url.Content("~/lib/signalr/dist/browser/signalr.js")'></script>
