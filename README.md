@@ -1,6 +1,9 @@
 # StickyNotes
 StickyNotes is a brainstorming collaboration app for distributed group. It can also be used as your personal sticky notes page such as to-do-list or so. 
 
+## Our website
+https://sticky20181219103726.azurewebsites.net/Index
+
 ## Features
 - User can sign up and alternatively via google login
 - Create sticky notes on click
