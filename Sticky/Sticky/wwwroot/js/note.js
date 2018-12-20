@@ -11,8 +11,11 @@ connection.on("ReceiveMessage", function (user, message, id) {
 });
 
 // receiving the stickynotes creation
-connection.on("ReceiveNote", function (message) {
+connection.on("ReceiveNote", function (message, board) {
     //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    let boardid = localStorage.getItem("board");
+    if (boardid != board)
+        return;
     $(".active").removeClass("active");
     var board = document.getElementById("board");
     board.insertAdjacentHTML('beforeend', message);
@@ -56,7 +59,16 @@ connection.on('MovedUp', function (z, id) {
 });
 
 
-
+// sending the note creation
+$(document).on('noteCreated', function () {
+    var note = document.getElementsByClassName('active');
+    let boardid = localStorage.getItem("board");
+    var message = note[0].outerHTML;
+    connection.invoke('SendNoteCreated', message, boardid).catch(function (err) {
+        return console.error(err.toString());
+    });
+    event.preventDefault();
+});
 
 // creating sticky notes on click
 function loginClick() {
@@ -97,18 +109,6 @@ $(function () {
     });
 });
 
-
-// sending the note creation
-$(document).on('noteCreated', function () {
-    // alert('noteCreated');
-    var note = document.getElementsByClassName('active');
-    var message = note[0].outerHTML;
-    //console.log(message);
-    connection.invoke('SendNoteCreated', message).catch(function (err) {
-        return console.error(err.toString());
-    });
-    event.preventDefault();
-});
 
 /**
  * Adds a note to the board

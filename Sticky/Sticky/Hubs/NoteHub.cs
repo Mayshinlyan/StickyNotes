@@ -13,9 +13,9 @@ namespace Sticky.Hubs
         }
 
         // telling the client to receive note creation
-        public async Task SendNoteCreated(string message)
+        public async Task SendNoteCreated(string message, int boardid)
         {
-            await Clients.Others.SendAsync("ReceiveNote", message);
+            await Clients.Others.SendAsync("ReceiveNote", message, boardid);
         }
 
         // drag function
