@@ -1,4 +1,8 @@
-﻿function goToBoard(id) {
+﻿/**
+ * Method to go to anyboard
+ * @param {int} id
+ */
+function goToBoard(id) {
     localStorage.setItem("board", id);
     let url = window.location.href.replace(window.location.pathname, '');
     url = url + "/Board";

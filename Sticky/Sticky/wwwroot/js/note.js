@@ -3,16 +3,20 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/NoteHub").build();
 connection.serverTimeoutInMilliseconds = 3600000; // 1 second
 var user = "may";
-// receiving the text inside the note
+
+/**
+ * Receive the text inside the note
+ */
 connection.on("ReceiveMessage", function (user, message, id) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var input = document.getElementById(id).lastChild;
     input.value = msg;
 });
 
-// receiving the stickynotes creation
+/**
+ * Receive the stickynote creation
+ */
 connection.on("ReceiveNote", function (message, board) {
-    //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     let boardid = localStorage.getItem("board");
     if (boardid != board)
         return;
@@ -22,15 +26,19 @@ connection.on("ReceiveNote", function (message, board) {
     var input = message.lastChild;
 });
 
-// receiving the stickynotes position
+/**
+ * Receive the stickynote position
+ * @param {int} id, x, y the note id and x-y coordinates of the note 
+ */
 connection.on('ShapeMoved', function (id, x, y) {
-    //console.log("shaped moved");
     $('#' + id).css({ left: x, top: y });
-    //$('.active')
 });
 
 
-// receiving the stickynotes position
+/**
+ * Receive the stickynote deletion
+ * @param {int} id the note id
+ */
 connection.on('NoteDeleted', function (id) {
     console.log('note deleted');
     var element = document.getElementById(id);
@@ -38,7 +46,10 @@ connection.on('NoteDeleted', function (id) {
 });
 
 
-// receiving the new z-index
+/**
+ * Receive the new z-index
+ * @param {int} z, id index and note id 
+ */
 connection.on('MovedUp', function (z, id) {
     var e = document.getElementById(id);
     e.style.zIndex = z;
@@ -58,7 +69,9 @@ connection.on('MovedUp', function (z, id) {
 });
 
 
-// sending the note creation
+/**
+ * Send the note creation
+ */
 $(document).on('noteCreated', function () {
     var note = document.getElementsByClassName('active');
     let boardid = localStorage.getItem("board");
@@ -70,14 +83,19 @@ $(document).on('noteCreated', function () {
 });
 
 
-// creating sticky notes on click
+/**
+ * Toggle the login modal 
+ */
 function loginClick() {
     $(".modal").slideToggle("slow");
 }
 
+
+/**
+ * Create note on click 
+ */
 var max = 5;
 var autoID = 0;
-
 var board = document.getElementById('board');
 $(function () {
     //creates stickynote when you click on the board
@@ -92,11 +110,8 @@ $(function () {
         let note = { ycoor: e.pageY, xcoor: e.pageX, boardId: boardId };
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-           // console.log(this.readyState);
-            //console.log(this.status);
             if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
                 let note = JSON.parse(xhttp.responseText);
-                //console.log(note);
                 createNoteFromJSON(note);
                 $(document).trigger('noteCreated');
             }
@@ -105,7 +120,6 @@ $(function () {
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(note));
        
-
     });
 });
 
@@ -137,7 +151,10 @@ function createNoteFromJSON(note) {
 
 
 
-//moves the clicked stickynote up to the top.
+/**
+ * moves the clicked stickynote up to the top.
+ * @param {any} id
+ */
 function moveUp(id) {
     console.log("moveup");
     max = findHighestZIndex('div');
@@ -145,7 +162,10 @@ function moveUp(id) {
     connection.invoke("MovedUp", max, id|| 0)
 }
 
-//finds the highest z index (duh)
+/**
+ * Find the z-index 
+ * @param {DOM} element the element that is clicked 
+ */
 function findHighestZIndex(element) {
     var selectedElements = document.getElementsByTagName(element);
     var highest = 0;
@@ -158,22 +178,11 @@ function findHighestZIndex(element) {
     return highest + 1;
 }
 
-//finds the highest id
-//function findHighestId() {
-//    var selectedElements = document.getElementsByClassName('.stickynote');
-//    console.log(selectedElements);
-//    var highest = 0;
-//    for (var i = 0; i < selectedElements.length; i++) {
-//        var id = parseInt(document.defaultView.getComputedStyle(selectedElements[i], null).getPropertyValue("id"), 10);
-//        if ((id > highest) && (id != 'auto')) {
-//            highest = id;
-//        }
-//    }
-//    return highest;
-//}
 
-
-// drag the element and invoke MoveShape
+/**
+ * drag the element and invoke shape 
+ * 
+ */
 $(document).ready(function () {
     loadBoard();
     console.log("hey");
@@ -229,11 +238,8 @@ $(document).ready(function () {
 
 
 
-
 connection.start().catch(function (err) {
-    console.log("heyyyyyy")
-
-    return console.error(err.toString());
+      return console.error(err.toString());
 });
 
 
