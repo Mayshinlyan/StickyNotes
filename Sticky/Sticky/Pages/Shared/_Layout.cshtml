@@ -11,16 +11,7 @@
     <environment exclude="Development">
 
     </environment>
-    <link rel="stylesheet" href='@Url.Content("~/css/styles.css")' />
-    <link href="https://fonts.googleapis.com/css?family=Barlow|Satisfy&effect=3d" rel="stylesheet">
-    <script src='@Url.Content("~/js/Profile.js")'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")'></script>
-    <script src='@Url.Content("~/lib/signalr/dist/browser/signalr.js")'></script>
-    <script src='@Url.Content("~/js/note.js")'></script>
-    <script src='@Url.Content("~/js/Board.js")'></script>
-    <script src='@Url.Content("~/js/site.js")' asp-append-version="true"></script>
+    
 </head>
 <body class="hero-image flex">
 
@@ -35,13 +26,6 @@
 
 
         <environment include="Development">
-            <script src='@Url.Content("/lib/jquery/dist/jquery.js")'></script>
-            <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")'></script>
-            <script src='@Url.Content("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")'></script>
-            <script src='@Url.Content("https://code.jquery.com/ui/1.12.1/jquery-ui.js")'></script>
-            <script src='@Url.Content("~/js/note.js")'></script>
-            <script src='@Url.Content("~/js/Board.js")'></script>
-            <script src='@Url.Content("~/js/site.js")' asp-append-version="true"></script>
             <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
                     asp-fallback-src='@Url.Content("~/lib/jquery/dist/jquery.min.js")'
                     asp-fallback-test="window.jQuery"
@@ -54,6 +38,15 @@
                     crossorigin="anonymous"
                     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
             </script>
+            <link rel="stylesheet" href='@Url.Content("~/css/styles.css")' />
+            <link href="https://fonts.googleapis.com/css?family=Barlow|Satisfy&effect=3d" rel="stylesheet">
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")'></script>
+            <script src='@Url.Content("~/lib/signalr/dist/browser/signalr.js")'></script>
+            <script src='@Url.Content("~/js/note.js")'></script>
+            <script src='@Url.Content("~/js/Board.js")'></script>
+            <script src='@Url.Content("~/js/Profile.js")'></script>
+            <script src='@Url.Content("~/js/site.js")' asp-append-version="true"></script>
 
         </environment>
         <environment exclude="Development">
@@ -70,6 +63,15 @@
                     crossorigin="anonymous"
                     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
             </script>
+            <link rel="stylesheet" href='@Url.Content("~/css/styles.css")' />
+            <link href="https://fonts.googleapis.com/css?family=Barlow|Satisfy&effect=3d" rel="stylesheet">
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src='@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")'></script>
+            <script src='@Url.Content("~/lib/signalr/dist/browser/signalr.js")'></script>
+            <script src='@Url.Content("~/js/note.js")'></script>
+            <script src='@Url.Content("~/js/Board.js")'></script>
+            <script src='@Url.Content("~/js/Profile.js")'></script>
+            <script src='@Url.Content("~/js/site.js")' asp-append-version="true"></script>
         </environment>
 
     @RenderSection("Scripts", required: false)
