@@ -11,19 +11,13 @@
     <nav id="login" onclick="loginClick()">Settings</nav>
     @if (SignInManager.IsSignedIn(User))
     {
-        <nav style="display:none" class="modal">
-            <a class="button" href="Profile">Profile Page</a>
-            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-                <button type="submit" class="btn btn-link navbar-btn navbar-link button">Log Out!</button>
-            </form>
-        </nav>
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+            <button type="submit" class="btn btn-link navbar-btn navbar-link button">Log Out!</button>
+        </form>
     }
     else
     {
-        <nav style="display:none" class="modal">
-            <a class="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
-            <a class="button" href="Index">Home Page</a>
-        </nav>
+        <a class="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
     }
 </header>
 
