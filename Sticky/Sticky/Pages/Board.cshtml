@@ -4,32 +4,24 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
     <nav id="login">Log in!</nav>
     @if (SignInManager.IsSignedIn(User))
     {
         <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-        <button type="submit" class="btn btn-link navbar-btn navbar-link" id="login">Log Out!</button>
+            <button type="submit" class="btn btn-link navbar-btn navbar-link" id="login">Log Out!</button>
         </form>
     }
     else
     {
         <nav style="display:none" class="modal">
-        <a id="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
+            <a id="button" asp-area="Identity" asp-page="Account/Login">Log In!</a>
         </nav>
     }
-
 </header>
 
-
-
-<section id="board" class="hero-image">
-
-
-</section>
-
+<section id="board" class="hero-image"></section>
 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>

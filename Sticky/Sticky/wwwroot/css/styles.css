@@ -276,6 +276,10 @@ button::-moz-focus-inner {
     font-size: 20px;
 }
 
+    .boardName:hover {
+        color:lightgreen;
+    }
+
 .boardImage {
     position: absolute;
     left: 50%;

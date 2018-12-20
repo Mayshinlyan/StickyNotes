@@ -79,7 +79,8 @@ var board = document.getElementById('board');
 $(function () {
     //creates stickynote when you click on the board
     $("#board").click(function (e) {
-        let apiPath = "https://localhost:44363/api/notes/"
+        let url = window.location.href.replace(window.location.pathname, '');
+        let apiPath = url + "/api/notes/";
         let boardId = localStorage.getItem("board");
         if ($(e.target).is("header")) return;
         if ($(e.target).is("textarea")) return;
@@ -131,6 +132,10 @@ $(document).on('noteCreated', function () {
     event.preventDefault();
 });
 
+/**
+ * Adds a note to the board
+ * @param {any} note the JSON representation of a note
+ */
 function createNoteFromJSON(note) {
     autoID = autoID + 1;
     max = findHighestZIndex('div');
@@ -253,9 +258,13 @@ connection.start().catch(function (err) {
 
 
 
-
+/**
+ * Updates the database with new note information
+ * @param {any} id the id of the note to be updated
+ */
 function updateDb(id) {
-    var api = "https://localhost:44363/api/Notes/" + id;
+    let url = window.location.href.replace(window.location.pathname, '');
+    var api = url + "/api/Notes/" + id;
     var xhttp = new XMLHttpRequest();
     let boardId = localStorage.getItem("board");
     var elem = document.getElementById(id);
@@ -281,9 +290,14 @@ function updateDb(id) {
     xhttp.send(JSON.stringify(note));
 }
 
-
+/**
+ * 
+ * Deletes a note from the board
+ * @param {any} id the id of the note to be deleted
+ */
 function deleteNote(id) {
-    let api = "https://localhost:44363/api/notes/" + id;
+    let url = window.location.href.replace(window.location.pathname, '');
+    let api = url + "/api/notes/" + id;
     $('#' + id + '').remove();
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -297,10 +311,15 @@ function deleteNote(id) {
     
 }
 
-
+/**
+ * Uses a GET request to get the board with notes from the api.
+ * Gets BoardId from local storage.
+ */
 function loadBoard() { 
     let boardId = localStorage.getItem("board");
-    var apiPath = "https://localhost:44363/api/boards/" + boardId;
+    let url = window.location.href.replace(window.location.pathname, '');
+    let apiPath = url + "/api/Boards/" + boardId;
+    console.log(apiPath);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
