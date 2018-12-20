@@ -20,7 +20,6 @@ connection.on("ReceiveNote", function (message, board) {
     var board = document.getElementById("board");
     board.insertAdjacentHTML('beforeend', message);
     var input = message.lastChild;
-
 });
 
 // receiving the stickynotes position
@@ -69,6 +68,7 @@ $(document).on('noteCreated', function () {
     });
     event.preventDefault();
 });
+
 
 // creating sticky notes on click
 function loginClick() {
@@ -298,6 +298,7 @@ function deleteNote(id) {
 function loadBoard() { 
     let boardId = localStorage.getItem("board");
     let url = window.location.href.replace(window.location.pathname, '');
+    document.getElementById('BoardIdDiv').innerHTML = boardId;
     let apiPath = "api/Boards/" + boardId;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
