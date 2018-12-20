@@ -6,7 +6,8 @@
 
 <header>
     <h1 class="font-effect-3d header2"><a href="/Index">Sticky Notes</a></h1>
-    <nav id="login">Log in!</nav>
+    <input type="text" id="BoardName" value="Board Name!" maxlength="25"/>
+    <nav id="login"></nav>
     @if (SignInManager.IsSignedIn(User))
     {
         <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
